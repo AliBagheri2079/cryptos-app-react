@@ -6,8 +6,15 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
+    "lint:scripts": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:scripts:fix": "pnpm run lint:scripts --fix",
+    "lint:styles": "stylelint ./src/**/*.css",
+    "lint": "pnpm run lint:scripts:fix & pnpm run lint:styles",
+    "format:scripts": "prettier src --check",
+    "format:scripts:fix": "pnpm run format:scripts --write",
+    "format:styles": "pnpm run lint:styles --fix",
+    "format": "pnpm run format:scripts:fix & pnpm run format:styles",
     "prepare": "husky install"
   },
   "dependencies": {
