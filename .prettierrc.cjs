@@ -12,4 +12,7 @@ module.exports = {
   jsxSingleQuote: true,
   quoteProps: 'as-needed',
   semi: true,
+  importOrder: ['^@core/(.*)$', '^@server/(.*)$', '^@ui/(.*)$', '^[./]'],
+  importOrderSeparation: true,
+  importOrderSortSpecifiers: true,
 };
