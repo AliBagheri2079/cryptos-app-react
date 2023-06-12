@@ -15,6 +15,7 @@
     "format:scripts:fix": "pnpm run format:scripts --write",
     "format:styles": "pnpm run lint:styles --fix",
     "format": "pnpm run format:scripts:fix & pnpm run format:styles",
+    "svgr": "svgr -d src/components/Icons/ src/assets/icons",
     "prepare": "husky install"
   },
   "dependencies": {
