@@ -15,13 +15,22 @@
     "format:scripts:fix": "pnpm run format:scripts --write",
     "format:styles": "pnpm run lint:styles --fix",
     "format": "pnpm run format:scripts:fix & pnpm run format:styles",
+    "svgr": "svgr -d src/components/Icons/ src/assets/icons",
     "prepare": "husky install"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@mantine/core": "^6.0.13",
+    "@mantine/hooks": "^6.0.13",
+    "clsx": "^1.2.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "styled-components": "6.0.0-rc.3",
+    "twin.macro": "^3.3.1",
+    "vite-plugin-svgr": "^3.2.0"
   },
   "devDependencies": {
+    "@svgr/cli": "^8.0.1",
     "@trivago/prettier-plugin-sort-imports": "^4.1.1",
     "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",
