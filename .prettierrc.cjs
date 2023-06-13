@@ -12,7 +12,17 @@ module.exports = {
   jsxSingleQuote: true,
   quoteProps: 'as-needed',
   semi: true,
-  importOrder: ['^@core/(.*)$', '^@server/(.*)$', '^@ui/(.*)$', '^[./]'],
+  importOrder: [
+    '^@core/(.*)$',
+    '^@server/(.*)$',
+    '^@ui/(.*)$',
+    '^(.||@|$)/(.*)$',
+  ],
   importOrderSeparation: true,
   importOrderSortSpecifiers: true,
+  importOrderGroupNamespaceSpecifiers: true,
+  importOrderCaseInsensitive: true,
+  importOrderParserPlugins: ['typescript', 'jsx'],
+  plugins: ['@trivago/prettier-plugin-sort-imports'],
+  pluginSearchDirs: false,
 };
