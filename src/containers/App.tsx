@@ -4,7 +4,7 @@ import {
   ColorSchemeProvider,
   MantineProvider,
 } from '@mantine/core';
-import { createTheme } from './createTheme';
+import { createTheme } from './theme';
 
 const App = () => {
   const [colorScheme, setColorScheme] = useState<ColorScheme>('light');
