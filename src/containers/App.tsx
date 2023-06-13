@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import {
   ColorScheme,
   ColorSchemeProvider,
@@ -6,7 +6,7 @@ import {
 } from '@mantine/core';
 import { createTheme } from './theme';
 
-const App = () => {
+const App: FC = () => {
   const [colorScheme, setColorScheme] = useState<ColorScheme>('light');
   const toggleColorScheme = (value?: ColorScheme) =>
     setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
