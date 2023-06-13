@@ -1,10 +1,12 @@
-import { FC, useState } from 'react';
 import {
   ColorScheme,
   ColorSchemeProvider,
   MantineProvider,
 } from '@mantine/core';
+import { FC, useState } from 'react';
+
 import { createTheme } from './theme';
+import Routes from '@/routes';
 
 const App: FC = () => {
   const [colorScheme, setColorScheme] = useState<ColorScheme>('light');
@@ -24,7 +26,8 @@ const App: FC = () => {
         theme={theme}
       >
         {/* <CustomFonts /> */}
-        {/* <Routes /> */}
+
+        <Routes />
       </MantineProvider>
     </ColorSchemeProvider>
   );
