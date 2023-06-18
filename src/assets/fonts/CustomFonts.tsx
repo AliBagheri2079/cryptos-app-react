@@ -1,34 +1,30 @@
 import { Global } from '@mantine/core';
-
-import Sahel_eot from './sahel/Sahel.eot';
-import Sahel_woff2 from './sahel/Sahel.woff2';
-import Sahel_woff from './sahel/Sahel.woff';
-import Sahel_ttf from './sahel/Sahel.ttf';
-
-import SahelBold_eot from './sahel/Sahel-Bold.eot';
-import SahelBold_woff2 from './sahel/Sahel-Bold.woff2';
-import SahelBold_woff from './sahel/Sahel-Bold.woff';
-import SahelBold_ttf from './sahel/Sahel-Bold.ttf';
-
-import SahelLight_eot from './sahel/Sahel-Light.eot';
-import SahelLight_woff2 from './sahel/Sahel-Light.woff2';
-import SahelLight_woff from './sahel/Sahel-Light.woff';
-import SahelLight_ttf from './sahel/Sahel-Light.ttf';
-
-import SahelSemiBold_eot from './sahel/Sahel-SemiBold.eot';
-import SahelSemiBold_woff2 from './sahel/Sahel-SemiBold.woff2';
-import SahelSemiBold_woff from './sahel/Sahel-SemiBold.woff';
-import SahelSemiBold_ttf from './sahel/Sahel-SemiBold.ttf';
+import { type FC } from 'react';
 
 import SahelBlack_eot from './sahel/Sahel-Black.eot';
-import SahelBlack_woff2 from './sahel/Sahel-Black.woff2';
-import SahelBlack_woff from './sahel/Sahel-Black.woff';
 import SahelBlack_ttf from './sahel/Sahel-Black.ttf';
-
-import SahelVF_woff2 from './sahel/Sahel-VF.woff2';
+import SahelBlack_woff from './sahel/Sahel-Black.woff';
+import SahelBlack_woff2 from './sahel/Sahel-Black.woff2';
+import SahelBold_eot from './sahel/Sahel-Bold.eot';
+import SahelBold_ttf from './sahel/Sahel-Bold.ttf';
+import SahelBold_woff from './sahel/Sahel-Bold.woff';
+import SahelBold_woff2 from './sahel/Sahel-Bold.woff2';
+import SahelLight_eot from './sahel/Sahel-Light.eot';
+import SahelLight_ttf from './sahel/Sahel-Light.ttf';
+import SahelLight_woff from './sahel/Sahel-Light.woff';
+import SahelLight_woff2 from './sahel/Sahel-Light.woff2';
+import SahelSemiBold_eot from './sahel/Sahel-SemiBold.eot';
+import SahelSemiBold_ttf from './sahel/Sahel-SemiBold.ttf';
+import SahelSemiBold_woff from './sahel/Sahel-SemiBold.woff';
+import SahelSemiBold_woff2 from './sahel/Sahel-SemiBold.woff2';
 import SahelVF_ttf from './sahel/Sahel-VF.ttf';
+import SahelVF_woff2 from './sahel/Sahel-VF.woff2';
+import Sahel_eot from './sahel/Sahel.eot';
+import Sahel_ttf from './sahel/Sahel.ttf';
+import Sahel_woff from './sahel/Sahel.woff';
+import Sahel_woff2 from './sahel/Sahel.woff2';
 
-export function CustomFonts() {
+export const CustomFonts: FC = () => {
   return (
     <Global
       styles={[
@@ -109,4 +105,4 @@ export function CustomFonts() {
       ]}
     />
   );
-}
+};

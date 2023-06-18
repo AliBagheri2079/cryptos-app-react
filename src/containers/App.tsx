@@ -1,17 +1,18 @@
 import {
-  ColorScheme,
+  type ColorScheme,
   ColorSchemeProvider,
   MantineProvider,
 } from '@mantine/core';
-import { FC, useState } from 'react';
+import { type FC, useState } from 'react';
 
 import { createTheme } from './theme';
 import Routes from '@/routes';
 
 const App: FC = () => {
   const [colorScheme, setColorScheme] = useState<ColorScheme>('light');
-  const toggleColorScheme = (value?: ColorScheme) =>
-    setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
+  const toggleColorScheme = (value?: ColorScheme): void => {
+    setColorScheme(value ?? (colorScheme === 'dark' ? 'light' : 'dark'));
+  };
   const theme = createTheme({ colorScheme });
 
   return (
