@@ -37,11 +37,15 @@ export const useTabStyles = createStyles(theme => ({
   },
 
   linkIconActive: {
-    backgroundColor: theme.fn.variant({
-      variant: 'filled',
-      color: theme.primaryColor,
+    background: theme.fn.variant({
+      variant: 'gradient',
+      gradient: {
+        from: theme.colors.indigo[6],
+        to: theme.colors.cyan[6],
+      },
+      // color: theme.primaryColor,
     }).background,
-    color: theme.fn.variant({ variant: 'filled', color: theme.primaryColor })
+    color: theme.fn.variant({ variant: 'gradient', color: theme.primaryColor })
       .color,
     outlineColor: theme.colorScheme === 'dark' ? theme.black : theme.white,
     transform: 'translateY(-50%)',

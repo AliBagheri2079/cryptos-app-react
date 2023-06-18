@@ -14,7 +14,12 @@ const LinkTab: FC<Omit<NavLinkProp, 'links' | 'opened'>> = ({
   const [{ pathname }] = useMatches();
 
   return (
-    <UnstyledButton component={NavLink} to={link} w={100} h={90}>
+    <UnstyledButton<typeof NavLink>
+      component={NavLink}
+      to={link}
+      w={100}
+      h={90}
+    >
       <Box
         h='100%'
         py='sm'
