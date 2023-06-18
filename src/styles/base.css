@@ -5,4 +5,8 @@
     --montserrat-font: 'Montserrat', sans-serif;
     --sahel-font: 'Sahel', sans-serif;
   }
+
+  * {
+    transition: all 200ms ease-in-out;
+  }
 }
