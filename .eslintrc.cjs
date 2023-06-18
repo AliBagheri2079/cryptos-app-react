@@ -37,5 +37,6 @@ module.exports = {
     '@typescript-eslint/member-delimiter-style': 'off',
     '@typescript-eslint/indent': 'off',
     '@typescript-eslint/prefer-optional-chain': 'off',
+    '@typescript-eslint/triple-slash-reference': 'off',
   },
 };

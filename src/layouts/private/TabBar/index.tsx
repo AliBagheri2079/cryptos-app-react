@@ -1,5 +1,5 @@
 import {
-  Button,
+  Flex,
   Group,
   Navbar,
   ScrollArea,
@@ -29,22 +29,24 @@ const TabBar: FC = () => {
     >
       <Navbar.Section component={ScrollArea} grow>
         <Group h={BASE_HEIGHT} align='flex-end'>
-          <Button.Group
+          <Flex
+            gap='xs'
+            justify='flex-start'
+            align='flex-end'
+            direction='row'
+            wrap='nowrap'
             sx={{
-              flexWrap: 'nowrap',
-              alignItems: 'flex-end',
-              gap: theme.spacing.xs,
-              borderRadius: theme.spacing.xs,
               backgroundColor:
                 theme.colorScheme === 'dark'
                   ? theme.colors.dark[5]
                   : theme.colors.gray[2],
+              borderRadius: theme.spacing.xs,
             }}
           >
             {navLinkData.map(items => (
               <LinkTab key={randomId()} {...items} />
             ))}
-          </Button.Group>
+          </Flex>
         </Group>
       </Navbar.Section>
     </Navbar>
