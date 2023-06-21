@@ -2,6 +2,7 @@ import { Container, Grid, useMantineTheme } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
 import { type FC, type ReactNode } from 'react';
 
+import Header from '../Header';
 import Sidebar from '../Sidebar';
 import TabBar from '../TabBar';
 import { BASE_COL_HEIGHT } from '@/utils/constants/colHeight';
@@ -12,6 +13,8 @@ type Props = {
 
 const Dashboard: FC<Props> = ({ children }) => {
   const theme = useMantineTheme();
+
+  // TODO: Create many utils size matches
   const mobileSizeMatches = useMediaQuery(
     `(max-width: ${theme.breakpoints.sm})`,
   );
@@ -41,9 +44,9 @@ const Dashboard: FC<Props> = ({ children }) => {
           </Grid.Col>
 
           <Grid.Col sm={8} order={1} orderSm={2}>
-            <Grid grow gutter='xs' gutterLg='lg'>
+            <Grid grow gutter='md' gutterLg='xl'>
               <Grid.Col span={12} mih={BASE_COL_HEIGHT.FIRST}>
-                Header Box
+                <Header />
               </Grid.Col>
 
               <Grid.Col span='auto' mih={BASE_COL_HEIGHT.SECOND}>
