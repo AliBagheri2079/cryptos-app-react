@@ -1,14 +1,14 @@
 import { Container, Grid, useMantineTheme } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
-import { type FC, type ReactElement } from 'react';
+import { type FC, type ReactNode } from 'react';
 
 import Sidebar from '../Sidebar';
 import TabBar from '../TabBar';
-import { BASE_COL_HEIGHT } from '@/utils/constants/col-height';
+import { BASE_COL_HEIGHT } from '@/utils/constants/colHeight';
 
-interface Props {
-  children: ReactElement;
-}
+type Props = {
+  children: ReactNode;
+};
 
 const Dashboard: FC<Props> = ({ children }) => {
   const theme = useMantineTheme();
