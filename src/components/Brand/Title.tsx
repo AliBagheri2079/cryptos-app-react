@@ -7,7 +7,7 @@ const BrandTitle: FC = () => {
       <Text span fw={700}>
         Crypt
       </Text>
-      fest
+      <Text span>fest</Text>
     </Title>
   );
 };
