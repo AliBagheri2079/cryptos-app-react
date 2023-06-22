@@ -3,9 +3,9 @@ import { createElement, type FC } from 'react';
 import { NavLink, useMatches } from 'react-router-dom';
 
 import { useTabStyles } from './index.style';
-import { type NavLinkProp } from '@/global/types/NavLinkProp';
+import { type NavLinkProps } from '@/global/types/NavLinkProps';
 
-const LinkTab: FC<Omit<NavLinkProp, 'links' | 'opened'>> = ({
+const LinkTab: FC<Omit<NavLinkProps, 'links' | 'opened'>> = ({
   label,
   link,
   icon,

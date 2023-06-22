@@ -4,8 +4,8 @@ import { createElement, type FC, useState } from 'react';
 import { NavLink, useMatches } from 'react-router-dom';
 
 import { useGroupStyles } from './index.style';
-import { type NavLinkProp } from '@/global/types/NavLinkProp';
-import { randomId } from '@/utils/helpers/random-id';
+import { type NavLinkProps } from '@/global/types/NavLinkProps';
+import { randomId } from '@/utils/helpers/randomId';
 
 interface LinkGroupProp {
   open?: boolean;
@@ -14,7 +14,7 @@ interface LinkGroupProp {
 }
 
 const LinkGroupButton: FC<
-  LinkGroupProp & Omit<NavLinkProp, 'links' | 'opened'>
+  LinkGroupProp & Omit<NavLinkProps, 'links' | 'opened'>
 > = ({ open, handleOpen, hasLinks, label, link, icon }) => {
   const { classes, theme, cx } = useGroupStyles();
   const [{ pathname }] = useMatches();
@@ -61,7 +61,7 @@ const LinkGroupButton: FC<
  ! const MemoizedButton = memo(LinkGroupButton);
 */
 
-const LinkGroupItem: FC<LinkGroupProp & Pick<NavLinkProp, 'links'>> = ({
+const LinkGroupItem: FC<LinkGroupProp & Pick<NavLinkProps, 'links'>> = ({
   open,
   hasLinks,
   links,
@@ -96,7 +96,7 @@ const LinkGroupItem: FC<LinkGroupProp & Pick<NavLinkProp, 'links'>> = ({
  ! const MemoizedItem = memo(LinkGroupItem);
 */
 
-const LinkGroup: FC<NavLinkProp> = props => {
+const LinkGroup: FC<NavLinkProps> = props => {
   const [isOpened, setIsOpened] = useState<boolean>(props.opened ?? false);
   const hasLinks: boolean = Array.isArray(props.links);
 

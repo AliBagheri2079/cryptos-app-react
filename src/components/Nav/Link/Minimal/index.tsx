@@ -1,17 +1,17 @@
-import { Tooltip, UnstyledButton } from '@mantine/core'
-import { createElement, type FC } from 'react'
-import { NavLink, useMatches } from 'react-router-dom'
+import { Tooltip, UnstyledButton } from '@mantine/core';
+import { createElement, type FC } from 'react';
+import { NavLink, useMatches } from 'react-router-dom';
 
-import { useMinimalStyles } from './index.style'
-import { type NavLinkProp } from '@/global/types/NavLinkProp'
+import { useMinimalStyles } from './index.style';
+import { type NavLinkProps } from '@/global/types/NavLinkProps';
 
-const LinkMinimal: FC<Omit<NavLinkProp, 'links' | 'opened'>> = ({
+const LinkMinimal: FC<Omit<NavLinkProps, 'links' | 'opened'>> = ({
   label,
   link,
-  icon
+  icon,
 }) => {
-  const { classes, cx } = useMinimalStyles()
-  const [{ pathname }] = useMatches()
+  const { classes, cx } = useMinimalStyles();
+  const [{ pathname }] = useMatches();
 
   return (
     <Tooltip
@@ -33,11 +33,11 @@ const LinkMinimal: FC<Omit<NavLinkProp, 'links' | 'opened'>> = ({
       >
         {createElement(icon, {
           size: '24',
-          stroke: '1.5'
+          stroke: '1.5',
         })}
       </UnstyledButton>
     </Tooltip>
-  )
-}
+  );
+};
 
-export default LinkMinimal
+export default LinkMinimal;
