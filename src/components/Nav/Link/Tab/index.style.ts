@@ -11,7 +11,6 @@ export const useTabStyles = createStyles(theme => ({
     outlineStyle: 'solid',
     outlineColor: 'transparent',
     borderRadius: '100vmax',
-    transition: 'all 500ms ease-in-out',
 
     '&::before, &::after': {
       content: '""',
@@ -21,7 +20,7 @@ export const useTabStyles = createStyles(theme => ({
       height: '30px',
       background: 'transparent',
       boxShadow: `0 -10px 0 0 ${
-        theme.colorScheme === 'dark' ? theme.black : theme.white
+        theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white
       }`,
     },
 
@@ -47,13 +46,13 @@ export const useTabStyles = createStyles(theme => ({
     }).background,
     color: theme.fn.variant({ variant: 'gradient', color: theme.primaryColor })
       .color,
-    outlineColor: theme.colorScheme === 'dark' ? theme.black : theme.white,
+    outlineColor:
+      theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
     transform: 'translateY(-50%)',
   },
 
   linkText: {
     transform: 'translateY(150%) scale(0)',
-    transition: 'all 500ms ease-in-out',
   },
 
   linkTextActive: {

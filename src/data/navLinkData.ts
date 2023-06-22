@@ -7,12 +7,12 @@ import {
   IconHome2,
   IconNotes,
   IconSettings,
-  IconUser
-} from '@tabler/icons-react'
+  IconUser,
+} from '@tabler/icons-react';
 
-import { type NavLinkProp } from '@/global/types/NavLinkProp'
+import { type NavLinkProps } from '@/global/types/NavLinkProps';
 
-export const navLinkData: NavLinkProp[] = [
+export const navLinkData: NavLinkProps[] = [
   { label: 'Home', link: '/home', icon: IconHome2 },
   { label: 'Dashboard', link: '/dashboard', icon: IconGauge },
   {
@@ -23,8 +23,8 @@ export const navLinkData: NavLinkProp[] = [
       { label: 'Overview', link: '/' },
       { label: 'Forecasts', link: '/' },
       { label: 'Outlook', link: '/' },
-      { label: 'Real time', link: '/' }
-    ]
+      { label: 'Real time', link: '/' },
+    ],
   },
   {
     label: 'Releases',
@@ -33,25 +33,25 @@ export const navLinkData: NavLinkProp[] = [
     links: [
       { label: 'Upcoming releases', link: '/' },
       { label: 'Previous releases', link: '/' },
-      { label: 'Releases schedule', link: '/' }
+      { label: 'Releases schedule', link: '/' },
     ],
-    opened: true
+    opened: true,
   },
   {
     label: 'Analytics',
     link: '/',
-    icon: IconDeviceDesktopAnalytics
+    icon: IconDeviceDesktopAnalytics,
   },
   {
     label: 'Contracts',
     link: '/',
-    icon: IconFileAnalytics
+    icon: IconFileAnalytics,
   },
   { label: 'Account', link: '/', icon: IconUser },
   {
     label: 'Settings',
     link: '/',
-    icon: IconSettings
+    icon: IconSettings,
   },
   {
     label: 'Security',
@@ -60,7 +60,7 @@ export const navLinkData: NavLinkProp[] = [
     links: [
       { label: 'Enable 2FA', link: '/' },
       { label: 'Change password', link: '/' },
-      { label: 'Recovery codes', link: '/' }
-    ]
-  }
-]
+      { label: 'Recovery codes', link: '/' },
+    ],
+  },
+];
