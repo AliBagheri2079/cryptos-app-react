@@ -29,6 +29,8 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.13.0",
     "styled-components": "6.0.0-rc.3",
+    "stylis": "^4.2.0",
+    "stylis-plugin-rtl": "^2.1.1",
     "twin.macro": "^3.3.1",
     "vite-plugin-svgr": "^3.2.0"
   },
