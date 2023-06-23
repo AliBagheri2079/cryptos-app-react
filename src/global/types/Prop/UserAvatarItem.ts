@@ -1,4 +1,4 @@
-import { type IconProp } from '../types/IconProp';
+import { type IconProp } from './Icon';
 
 type AvatarItemInfoProps = {
   title: string;
