@@ -22,11 +22,10 @@ const ToggleLanguage: FC = () => {
 
   return (
     <Button
-      variant='light'
+      variant='transparent'
       radius='xl'
       size='sm'
       color='dark'
-      bg='transparent'
       w='4.5rem'
       uppercase
       compact
