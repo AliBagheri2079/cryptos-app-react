@@ -44,7 +44,12 @@ const Sidebar: FC = () => {
         <Group position='left'>
           <BrandLogo />
 
-          {laptopSizeMatches && <BrandTitle />}
+          {laptopSizeMatches && (
+            <BrandTitle
+              boldTitle='brand_title_1'
+              regularTitle='brand_title_2'
+            />
+          )}
         </Group>
       </Navbar.Section>
 
@@ -70,9 +75,9 @@ const Sidebar: FC = () => {
       <Navbar.Section>
         <Stack>
           {laptopSizeMatches ? (
-            <LinkGroup label='Logout' icon={IconLogout} link='/' />
+            <LinkGroup label='nav_link_last' icon={IconLogout} link='/' />
           ) : (
-            <LinkMinimal label='Logout' icon={IconLogout} link='/' />
+            <LinkMinimal label='nav_link_last' icon={IconLogout} link='/' />
           )}
         </Stack>
       </Navbar.Section>

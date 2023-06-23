@@ -10,57 +10,101 @@ import {
   IconUser,
 } from '@tabler/icons-react';
 
-import { type NavLinkProps } from '@/global/types/NavLinkProps';
+import { type NavLinkProps } from '@/global/types/Prop/NavLink';
 
 export const navLinkData: NavLinkProps[] = [
-  { label: 'Home', link: '/home', icon: IconHome2 },
-  { label: 'Dashboard', link: '/dashboard', icon: IconGauge },
   {
-    label: 'Market news',
+    label: 'nav_link_1',
+    link: '/home',
+    icon: IconHome2,
+  },
+  {
+    label: 'nav_link_2',
+    link: '/dashboard',
+    icon: IconGauge,
+  },
+  {
+    label: 'nav_link_3',
     link: '/market-news',
     icon: IconNotes,
-    links: [
-      { label: 'Overview', link: '/' },
-      { label: 'Forecasts', link: '/' },
-      { label: 'Outlook', link: '/' },
-      { label: 'Real time', link: '/' },
+    items: [
+      {
+        label: 'nav_link_3_item_1',
+        link: '/market-news/overview',
+      },
+      {
+        label: 'nav_link_3_item_2',
+        link: '/market-news/forecasts',
+      },
+      {
+        label: 'nav_link_3_item_3',
+        link: '/market-news/outlook',
+      },
+      {
+        label: 'nav_link_3_item_4',
+        link: '/market-news/real-time',
+      },
     ],
   },
   {
-    label: 'Releases',
-    link: '/',
+    label: 'nav_link_4',
+    link: '/releases',
     icon: IconCalendarStats,
-    links: [
-      { label: 'Upcoming releases', link: '/' },
-      { label: 'Previous releases', link: '/' },
-      { label: 'Releases schedule', link: '/' },
+    items: [
+      {
+        label: 'nav_link_4_item_1',
+        link: '/releases/upcoming',
+      },
+      {
+        label: 'nav_link_4_item_2',
+        link: '/releases/previous',
+      },
+      {
+        label: 'nav_link_4_item_3',
+        link: '/releases/schedule',
+      },
     ],
     opened: true,
   },
   {
-    label: 'Analytics',
-    link: '/',
+    label: 'nav_link_5',
+    link: '/analytics',
     icon: IconDeviceDesktopAnalytics,
   },
   {
-    label: 'Contracts',
-    link: '/',
+    label: 'nav_link_6',
+    link: '/contracts',
     icon: IconFileAnalytics,
   },
-  { label: 'Account', link: '/', icon: IconUser },
   {
-    label: 'Settings',
-    link: '/',
+    label: 'nav_link_7',
+    link: '/settings',
     icon: IconSettings,
   },
   {
-    label: 'Security',
-    link: '/',
+    label: 'nav_link_8',
+    link: '/security',
     icon: IconFingerprint,
-    links: [
-      { label: 'Enable 2FA', link: '/' },
-      { label: 'Change password', link: '/' },
-      { label: 'Recovery codes', link: '/' },
+    items: [
+      {
+        label: 'nav_link_8_item_1',
+        link: '/security/enable-2fa',
+      },
+      {
+        label: 'nav_link_8_item_2',
+
+        link: '/security/change-password',
+      },
+      {
+        label: 'nav_link_8_item_3',
+
+        link: '/security/recovery-codes',
+      },
     ],
+  },
+  {
+    label: 'nav_link_9',
+    link: '/account',
+    icon: IconUser,
   },
 ];

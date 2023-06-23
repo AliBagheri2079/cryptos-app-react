@@ -1,10 +1,11 @@
 import { Box, Collapse, Group, Text, UnstyledButton } from '@mantine/core';
 import { IconChevronLeft, IconChevronRight } from '@tabler/icons-react';
 import { createElement, type FC, useState } from 'react';
+import { Trans } from 'react-i18next';
 import { NavLink, useMatches } from 'react-router-dom';
 
 import { useGroupStyles } from './index.style';
-import { type NavLinkProps } from '@/global/types/NavLinkProps';
+import { type NavLinkProps } from '@/global/types/Prop/NavLink';
 import { randomId } from '@/utils/helpers/randomId';
 
 interface LinkGroupProp {
@@ -14,7 +15,7 @@ interface LinkGroupProp {
 }
 
 const LinkGroupButton: FC<
-  LinkGroupProp & Omit<NavLinkProps, 'links' | 'opened'>
+  LinkGroupProp & Omit<NavLinkProps, 'items' | 'opened'>
 > = ({ open, handleOpen, hasLinks, label, link, icon }) => {
   const { classes, theme, cx } = useGroupStyles();
   const [{ pathname }] = useMatches();
@@ -36,7 +37,14 @@ const LinkGroupButton: FC<
             size: '24',
             stroke: '1.5',
           })}
-          <Box ml='md'>{label}</Box>
+          <Box ml='md'>
+            <Trans
+              i18nKey={label}
+              defaults='nav <italic>{{string}}</italic>'
+              values={{ string: 'item' }}
+              components={{ italic: <i /> }}
+            />
+          </Box>
         </Box>
 
         {hasLinks && (
@@ -61,10 +69,10 @@ const LinkGroupButton: FC<
  ! const MemoizedButton = memo(LinkGroupButton);
 */
 
-const LinkGroupItem: FC<LinkGroupProp & Pick<NavLinkProps, 'links'>> = ({
+const LinkGroupItem: FC<LinkGroupProp & Pick<NavLinkProps, 'items'>> = ({
   open,
   hasLinks,
-  links,
+  items,
 }) => {
   const { classes, cx } = useGroupStyles();
 
@@ -76,14 +84,19 @@ const LinkGroupItem: FC<LinkGroupProp & Pick<NavLinkProps, 'links'>> = ({
           transitionDuration={200}
           transitionTimingFunction='linear'
         >
-          {links?.map(({ label, link }) => (
+          {items?.map(({ label, link }) => (
             <Text
               key={randomId()}
               component={NavLink}
               to={link}
               className={cx(classes.default, classes.linkColor, classes.link)}
             >
-              {label}
+              <Trans
+                i18nKey={label}
+                defaults='nav <italic>{{string}}</italic>'
+                values={{ string: 'item' }}
+                components={{ italic: <i /> }}
+              />
             </Text>
           ))}
         </Collapse>
@@ -98,7 +111,7 @@ const LinkGroupItem: FC<LinkGroupProp & Pick<NavLinkProps, 'links'>> = ({
 
 const LinkGroup: FC<NavLinkProps> = props => {
   const [isOpened, setIsOpened] = useState<boolean>(props.opened ?? false);
-  const hasLinks: boolean = Array.isArray(props.links);
+  const hasLinks: boolean = Array.isArray(props.items);
 
   const handleOpen = (): void => {
     setIsOpened(o => !o);

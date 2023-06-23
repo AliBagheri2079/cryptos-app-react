@@ -5,27 +5,27 @@ import {
   IconTrash,
 } from '@tabler/icons-react';
 
-import { type UserAvatarItemProps } from '@/global/types/UserAvatarItemProps';
+import { type UserAvatarItemProps } from '@/global/types/Prop/UserAvatarItem';
 
 export const userAvatarItemData: UserAvatarItemProps[] = [
   {
-    label: 'Settings',
+    label: 'user_avatar_item_1',
     items: [
       {
-        title: 'Account settings',
+        title: 'user_avatar_item_1_option_1',
         link: '/settings',
         icon: IconSettings,
         iconColor: 'blue',
       },
       {
-        title: 'Change account',
+        title: 'user_avatar_item_1_option_2',
         link: '/change-account',
         icon: IconSwitchHorizontal,
         iconColor: 'orange',
         shortcut: '⌘C',
       },
       {
-        title: 'Logout',
+        title: 'user_avatar_item_1_option_3',
         link: '/logout',
         icon: IconLogout,
         iconColor: 'yellow',
@@ -34,10 +34,10 @@ export const userAvatarItemData: UserAvatarItemProps[] = [
     divider: true,
   },
   {
-    label: 'Danger zone',
+    label: 'user_avatar_item_2',
     items: [
       {
-        title: 'Delete account',
+        title: 'user_avatar_item_2_option_1',
         link: '/delete-accout',
         icon: IconTrash,
         iconColor: 'red',

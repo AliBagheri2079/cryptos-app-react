@@ -43,7 +43,7 @@ export const resources: Resource = {
     translation: {
       // * عنوان های سایت
       brand_title_1: 'سوپر',
-      brand_title_2: 'اپ',
+      brand_title_2: 'اپلیکیشن',
 
       // * داده های لینک
       nav_link_1: 'خانه',

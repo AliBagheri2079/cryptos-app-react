@@ -1,21 +1,24 @@
-import { Tooltip, UnstyledButton } from '@mantine/core';
+import { Tooltip, UnstyledButton, useMantineTheme } from '@mantine/core';
 import { createElement, type FC } from 'react';
+import { useTranslation } from 'react-i18next';
 import { NavLink, useMatches } from 'react-router-dom';
 
 import { useMinimalStyles } from './index.style';
-import { type NavLinkProps } from '@/global/types/NavLinkProps';
+import { type NavLinkProps } from '@/global/types/Prop/NavLink';
 
-const LinkMinimal: FC<Omit<NavLinkProps, 'links' | 'opened'>> = ({
+const LinkMinimal: FC<Omit<NavLinkProps, 'items' | 'opened'>> = ({
   label,
   link,
   icon,
 }) => {
   const { classes, cx } = useMinimalStyles();
   const [{ pathname }] = useMatches();
+  const theme = useMantineTheme();
+  const { t } = useTranslation();
 
   return (
     <Tooltip
-      label={label}
+      label={t(label)}
       position='right'
       color='blue'
       radius='md'
@@ -23,7 +26,10 @@ const LinkMinimal: FC<Omit<NavLinkProps, 'links' | 'opened'>> = ({
       offset={5}
       withArrow
       arrowSize={5}
-      transitionProps={{ transition: 'scale-x', duration: 300 }}
+      transitionProps={{
+        transition: theme.dir === 'ltr' ? 'slide-right' : 'slide-left',
+        duration: 300,
+      }}
       events={{ hover: true, focus: true, touch: false }}
     >
       <UnstyledButton
