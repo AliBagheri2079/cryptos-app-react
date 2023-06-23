@@ -13,8 +13,8 @@ i18n
   .init({
     resources,
     lng: 'en',
+    supportedLngs: ['en', 'fa'],
     fallbackLng: 'en',
-    debug: true,
 
     interpolation: {
       //* react already safes from xss
@@ -29,6 +29,8 @@ i18n
       transKeepBasicHtmlNodesFor: ['br', 'strong', 'i'],
       useSuspense: true,
     },
+
+    debug: process.env.NODE_ENV === 'development',
   });
 
 export default i18n;

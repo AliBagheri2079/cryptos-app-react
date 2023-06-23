@@ -9,6 +9,7 @@ import rtlPlugin from 'stylis-plugin-rtl';
 import { createTheme } from './theme';
 import useDirection from '@/hooks/useDirection';
 import useScheme from '@/hooks/useScheme';
+import useTheme from '@/hooks/useTheme';
 
 type Props = {
   children: ReactNode;
@@ -22,6 +23,7 @@ const rtlCache = createEmotionCache({
 const Mantine: FC<Props> = ({ children }) => {
   const [colorScheme, toggleColorScheme] = useScheme();
   const [dir] = useDirection();
+  const [primaryColor] = useTheme();
 
   const fontFamily =
     dir === 'ltr' ? 'Montserrat, sans-serif' : 'Sahel, sans-serif';
@@ -30,6 +32,7 @@ const Mantine: FC<Props> = ({ children }) => {
     dir,
     colorScheme,
     fontFamily,
+    primaryColor,
   });
 
   return (
