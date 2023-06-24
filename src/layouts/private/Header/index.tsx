@@ -22,7 +22,7 @@ const HeaderLayout: FC = () => {
   );
 
   return (
-    <Header height={50} sx={{ border: 'unset' }}>
+    <Header height={50} sx={{ backgroundColor: 'unset', border: 'unset' }}>
       <Group
         position='right'
         spacing='md'
