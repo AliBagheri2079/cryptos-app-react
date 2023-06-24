@@ -7,6 +7,7 @@ import {
   Text,
   UnstyledButton,
 } from '@mantine/core';
+import { useNetwork } from '@mantine/hooks';
 import { forwardRef } from 'react';
 
 import { type UserAvatarButtonProps } from '@/global/interfaces/UserAvatarButtonProps';
@@ -18,7 +19,8 @@ const UserAvatarButton = forwardRef<HTMLButtonElement, UserAvatarButtonProps>(
     ref,
   ) {
     const shortUserName = shortName(name, 'en-US');
-    // TODO: const shortUserName = shortName(name, 'fa-IR');
+    // const online = useOnlineStatus();
+    const { online } = useNetwork();
 
     return (
       <UnstyledButton ref={ref} {...others}>
@@ -27,13 +29,11 @@ const UserAvatarButton = forwardRef<HTMLButtonElement, UserAvatarButtonProps>(
 
           <Indicator
             inline
-            color='teal'
-            // TODO: color="red"
+            color={online ? 'teal' : 'red'}
             position='bottom-start'
             size={10}
             offset={5}
-            processing={false}
-            // TODO: processing={true}
+            processing={!online}
             withBorder
           >
             <Avatar
