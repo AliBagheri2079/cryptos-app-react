@@ -35,7 +35,9 @@ const LinkMinimal: FC<Omit<NavLinkProps, 'items' | 'opened'>> = ({
       <UnstyledButton
         component={NavLink}
         to={link}
-        className={cx(classes.link, { [classes.active]: link === pathname })}
+        className={cx(classes.linkIcon, {
+          [classes.linkIconActive]: link === pathname,
+        })}
       >
         {createElement(icon, {
           size: '24',

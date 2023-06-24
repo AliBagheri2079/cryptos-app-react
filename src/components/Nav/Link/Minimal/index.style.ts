@@ -1,7 +1,7 @@
 import { createStyles, rem } from '@mantine/core';
 
 export const useMinimalStyles = createStyles(theme => ({
-  link: {
+  linkIcon: {
     width: rem(50),
     height: rem(50),
     borderRadius: theme.radius.md,
@@ -18,7 +18,7 @@ export const useMinimalStyles = createStyles(theme => ({
     },
   },
 
-  active: {
+  linkIconActive: {
     '&, &:hover': {
       backgroundColor: theme.fn.variant({
         variant: 'filled',
