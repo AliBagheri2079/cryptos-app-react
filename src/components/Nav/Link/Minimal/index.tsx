@@ -20,7 +20,7 @@ const LinkMinimal: FC<Omit<NavLinkProps, 'items' | 'opened'>> = ({
     <Tooltip
       label={t(label)}
       position='right'
-      color='blue'
+      color={theme.primaryColor}
       radius='md'
       tt='capitalize'
       offset={5}
