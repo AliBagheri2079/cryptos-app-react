@@ -12,8 +12,8 @@ export const darkScale = keyframes({
   },
 });
 
-export const useClipPathBgStyles = createStyles(theme => ({
-  overlay: {
+export const useBackgroundOverlayStyles = createStyles(theme => ({
+  bgOverlay: {
     clipPath:
       theme.dir === 'ltr' ? 'circle(0% at 0% 0%)' : 'circle(0% at 100% 0%)',
     animationDuration: '750ms',
@@ -21,12 +21,12 @@ export const useClipPathBgStyles = createStyles(theme => ({
     animationDirection: 'alternate',
   },
 
-  overlayLightActive: {
+  lightBgOverlay: {
     backgroundColor: theme.colors.dark[7],
     animationName: lightScale,
   },
 
-  overlayDarkActive: {
+  darkBgOverlay: {
     backgroundColor: theme.white,
     animationName: darkScale,
   },
