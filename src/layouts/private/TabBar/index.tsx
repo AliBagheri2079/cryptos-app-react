@@ -29,10 +29,14 @@ const TabBar: FC = () => {
             direction='row'
             wrap='nowrap'
             sx={theme => ({
-              backgroundColor:
-                theme.colorScheme === 'dark'
-                  ? theme.colors.dark[5]
-                  : theme.colors.gray[2],
+              backgroundColor: theme.fn.variant({
+                variant: 'light',
+                color:
+                  theme.colorScheme === 'dark'
+                    ? theme.colors.dark[5]
+                    : theme.colors.gray[2],
+              }).background,
+
               borderRadius: theme.spacing.xs,
             })}
           >
