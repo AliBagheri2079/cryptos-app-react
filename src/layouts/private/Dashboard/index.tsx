@@ -20,7 +20,7 @@ const Dashboard: FC<Props> = ({ children }) => {
     `(max-width: ${theme.breakpoints.sm})`,
   );
 
-  const Content = (
+  const Layout = (
     <Container
       fluid
       p={{
@@ -57,7 +57,7 @@ const Dashboard: FC<Props> = ({ children }) => {
     <>
       <BackgroundOverlay />
       <GradiantOverlay />
-      {Content}
+      {Layout}
     </>
   );
 };
