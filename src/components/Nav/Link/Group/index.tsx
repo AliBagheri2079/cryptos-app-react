@@ -22,7 +22,7 @@ const LinkGroupButton: FC<
 
   const ChevronIcon = theme.dir === 'ltr' ? IconChevronRight : IconChevronLeft;
   return (
-    <UnstyledButton
+    <UnstyledButton<typeof NavLink>
       component={NavLink}
       to={link}
       className={cx(classes.default, classes.control, {
@@ -85,7 +85,7 @@ const LinkGroupItem: FC<LinkGroupProp & Pick<NavLinkProps, 'items'>> = ({
           transitionTimingFunction='linear'
         >
           {items?.map(({ label, link }) => (
-            <Text
+            <Text<typeof NavLink>
               key={randomId()}
               component={NavLink}
               to={link}

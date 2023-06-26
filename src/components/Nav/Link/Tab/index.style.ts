@@ -36,12 +36,14 @@ export const useTabStyles = createStyles(theme => ({
   },
 
   linkIconActive: {
+    color: theme.fn.variant({ variant: 'light', color: theme.primaryColor })
+      .color,
     backgroundColor: theme.fn.variant({
-      variant: 'filled',
+      variant: 'light',
       color: theme.primaryColor,
     }).background,
-    color: theme.fn.variant({ variant: 'filled', color: theme.primaryColor })
-      .color,
+    backdropFilter: 'blur(10px) saturate(180%)',
+
     outlineColor:
       theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
     transform: 'translateY(-50%)',

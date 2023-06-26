@@ -52,13 +52,15 @@ export const useGroupStyles = createStyles(theme => ({
 
   linkActive: {
     ref: getStylesRef('active'),
+
     backgroundColor: theme.fn.variant({
-      variant: 'filled',
+      variant: 'light',
       color: theme.primaryColor,
     }).background,
+    backdropFilter: 'blur(10px) saturate(180%)',
 
     [`&, & .${getStylesRef('icon')}`]: {
-      color: theme.fn.variant({ variant: 'filled', color: theme.primaryColor })
+      color: theme.fn.variant({ variant: 'light', color: theme.primaryColor })
         .color,
     },
   },

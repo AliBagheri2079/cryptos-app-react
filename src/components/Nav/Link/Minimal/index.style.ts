@@ -20,12 +20,13 @@ export const useMinimalStyles = createStyles(theme => ({
 
   linkIconActive: {
     '&, &:hover': {
+      color: theme.fn.variant({ variant: 'light', color: theme.primaryColor })
+        .color,
       backgroundColor: theme.fn.variant({
-        variant: 'filled',
+        variant: 'light',
         color: theme.primaryColor,
       }).background,
-      color: theme.fn.variant({ variant: 'filled', color: theme.primaryColor })
-        .color,
+      backdropFilter: 'blur(10px) saturate(180%)',
     },
   },
 }));

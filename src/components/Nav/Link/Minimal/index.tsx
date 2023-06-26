@@ -32,7 +32,7 @@ const LinkMinimal: FC<Omit<NavLinkProps, 'items' | 'opened'>> = ({
       }}
       events={{ hover: true, focus: true, touch: false }}
     >
-      <UnstyledButton
+      <UnstyledButton<typeof NavLink>
         component={NavLink}
         to={link}
         className={cx(classes.linkIcon, {

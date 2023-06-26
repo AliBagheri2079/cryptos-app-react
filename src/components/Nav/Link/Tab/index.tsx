@@ -6,6 +6,7 @@ import { NavLink, useMatches } from 'react-router-dom';
 import { useTabStyles } from './index.style';
 import { type NavLinkProps } from '@/global/types/Prop/NavLink';
 
+// TODO: Change to TabLink component
 const LinkTab: FC<Omit<NavLinkProps, 'items' | 'opened'>> = ({
   label,
   link,
