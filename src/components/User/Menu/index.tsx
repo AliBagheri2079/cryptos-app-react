@@ -1,4 +1,4 @@
-import { Menu } from '@mantine/core';
+import { Menu, useMantineTheme } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { type FC } from 'react';
 
@@ -9,14 +9,17 @@ import { randomId } from '@/utils/helpers/randomId';
 
 const UserMenu: FC = () => {
   const { classes, cx } = useMenuStyles();
-  const [userMenuOpened, handlers] = useDisclosure(false);
+  const [, handlers] = useDisclosure(false);
+  const theme = useMantineTheme();
 
   return (
     <Menu
       width={260}
       position='bottom-end'
-      transitionProps={{ transition: 'pop-top-right', duration: 150 }}
-      // TODO: transitionProps={{ transition: 'pop-top-left', duration: 150 }}
+      transitionProps={{
+        transition: theme.dir === 'ltr' ? 'pop-top-right' : 'pop-top-left',
+        duration: 150,
+      }}
       onClose={() => {
         handlers.close();
       }}
@@ -30,16 +33,14 @@ const UserMenu: FC = () => {
     >
       <Menu.Target>
         <UserAvatarButton
-          className={cx(classes.user, {
-            [classes.userActive]: userMenuOpened,
-          })}
-          image='https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=255&q=80'
+          className={cx(classes.user)}
+          image=''
           name='Harriette Spoonlicker'
           email='hspoonlicker@outlook.com'
         />
       </Menu.Target>
 
-      <Menu.Dropdown>
+      <Menu.Dropdown className={classes.userItem}>
         {userAvatarItemData.map(data => (
           <UserAvatarItem key={randomId()} {...data} />
         ))}

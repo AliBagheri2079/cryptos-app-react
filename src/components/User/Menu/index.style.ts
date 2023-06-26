@@ -7,8 +7,11 @@ export const useMenuStyles = createStyles(theme => ({
     transition: 'background-color 100ms ease',
   },
 
-  userActive: {
-    backgroundColor:
-      theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.white,
+  userItem: {
+    backgroundColor: theme.fn.variant({
+      variant: 'light',
+      color: theme.primaryColor,
+    }).background,
+    backdropFilter: 'blur(10px) saturate(180%)',
   },
 }));

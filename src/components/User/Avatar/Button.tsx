@@ -39,7 +39,7 @@ const UserAvatarButton = forwardRef<HTMLButtonElement, UserAvatarButtonProps>(
             <Avatar
               src={image ?? null}
               alt={shortUserName}
-              variant='gradient'
+              variant='filled'
               radius='xl'
             >
               {shortUserName}
