@@ -24,6 +24,7 @@
     "@mantine/hooks": "^6.0.13",
     "@tabler/icons-react": "^2.22.0",
     "@types/node": "^20.3.0",
+    "axios": "^1.4.0",
     "clsx": "^1.2.1",
     "i18next": "^23.2.2",
     "i18next-browser-languagedetector": "^7.0.2",
