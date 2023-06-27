@@ -1,4 +1,4 @@
-import { MantineTheme, MantineThemeOverride } from '@mantine/core';
+import { type MantineTheme, type MantineThemeOverride } from '@mantine/core';
 
 type ThemeFC = (props: MantineThemeOverride) => MantineThemeOverride;
 

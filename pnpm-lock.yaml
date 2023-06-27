@@ -14,21 +14,42 @@ dependencies:
   '@mantine/hooks':
     specifier: ^6.0.13
     version: 6.0.13(react@18.2.0)
+  '@tabler/icons-react':
+    specifier: ^2.22.0
+    version: 2.22.0(react@18.2.0)
   '@types/node':
     specifier: ^20.3.0
     version: 20.3.0
   clsx:
     specifier: ^1.2.1
     version: 1.2.1
+  i18next:
+    specifier: ^23.2.2
+    version: 23.2.2
+  i18next-browser-languagedetector:
+    specifier: ^7.0.2
+    version: 7.0.2
   react:
     specifier: ^18.2.0
     version: 18.2.0
   react-dom:
     specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
+  react-i18next:
+    specifier: ^13.0.0
+    version: 13.0.0(i18next@23.2.2)(react-dom@18.2.0)(react@18.2.0)
+  react-router-dom:
+    specifier: ^6.13.0
+    version: 6.13.0(react-dom@18.2.0)(react@18.2.0)
   styled-components:
     specifier: 6.0.0-rc.3
     version: 6.0.0-rc.3(react-dom@18.2.0)(react@18.2.0)
+  stylis:
+    specifier: ^4.2.0
+    version: 4.2.0
+  stylis-plugin-rtl:
+    specifier: ^2.1.1
+    version: 2.1.1(stylis@4.2.0)
   twin.macro:
     specifier: ^3.3.1
     version: 3.3.1(tailwindcss@3.3.2)
@@ -71,13 +92,13 @@ devDependencies:
     specifier: ^35.0.0
     version: 35.0.0(@typescript-eslint/eslint-plugin@5.59.0)(eslint-plugin-import@2.27.5)(eslint-plugin-n@15.7.0)(eslint-plugin-promise@6.1.1)(eslint@8.38.0)(typescript@5.0.2)
   eslint-plugin-import:
-    specifier: ^2.25.2
+    specifier: ^2.27.5
     version: 2.27.5(@typescript-eslint/parser@5.59.0)(eslint@8.38.0)
   eslint-plugin-n:
-    specifier: ^15.0.0
+    specifier: ^15.7.0
     version: 15.7.0(eslint@8.38.0)
   eslint-plugin-promise:
-    specifier: ^6.0.0
+    specifier: ^6.1.1
     version: 6.1.1(eslint@8.38.0)
   eslint-plugin-react:
     specifier: ^7.32.2
@@ -2434,6 +2455,11 @@ packages:
       react: 18.2.0
     dev: false
 
+  /@remix-run/router@1.6.3:
+    resolution: {integrity: sha512-EXJysQ7J3veRECd0kZFQwYYd5sJMcq2O/m60zu1W2l3oVQ9xtub8jTOtYRE0+M2iomyG/W3Ps7+vp2kna0C27Q==}
+    engines: {node: '>=14'}
+    dev: false
+
   /@rollup/pluginutils@5.0.2:
     resolution: {integrity: sha512-pTd9rIsP92h+B6wWwFbW8RkZv4hiR/xKsqre4SIuAOaOEQRxi0lqLke9k2/7WegC85GgUs9pjmOjCUi3In4vwA==}
     engines: {node: '>=14.0.0'}
@@ -2847,6 +2873,20 @@ packages:
       '@swc/core-win32-ia32-msvc': 1.3.62
       '@swc/core-win32-x64-msvc': 1.3.62
     dev: true
+
+  /@tabler/icons-react@2.22.0(react@18.2.0):
+    resolution: {integrity: sha512-9udRxrbsbWzUETur4jmbZQIZkH7jVA2GU7YnKYS7ZCUjdOHZZEhmsfJ/Gdbzz0gSRC3mU7SDMsKejun/IBjvpQ==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@tabler/icons': 2.22.0
+      prop-types: 15.8.1
+      react: 18.2.0
+    dev: false
+
+  /@tabler/icons@2.22.0:
+    resolution: {integrity: sha512-lOsGHqRPIKNARMWHHFkUUJH78C8ptQmUcDnumFBUI4YLRKFouKa7uAZL3ZfuH0HjDpOhsnWqUYZ7FhMCLcGpAQ==}
+    dev: false
 
   /@trivago/prettier-plugin-sort-imports@4.1.1(prettier@2.8.8):
     resolution: {integrity: sha512-dQ2r2uzNr1x6pJsuh/8x0IRA3CBUB+pWEW3J/7N98axqt7SQSm+2fy0FLNXvXGg77xEDC7KHxJlHfLYyi7PDcw==}
@@ -3642,6 +3682,11 @@ packages:
     resolution: {integrity: sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==}
     engines: {node: '>=4'}
     hasBin: true
+
+  /cssjanus@2.1.0:
+    resolution: {integrity: sha512-kAijbny3GmdOi9k+QT6DGIXqFvL96aksNlGr4Rhk9qXDZYWUojU4bRc3IHWxdaLNOqgEZHuXoe5Wl2l7dxLW5g==}
+    engines: {node: '>=10.0.0'}
+    dev: false
 
   /cssnano-preset-default@6.0.1(postcss@8.4.24):
     resolution: {integrity: sha512-7VzyFZ5zEB1+l1nToKyrRkuaJIx0zi/1npjvZfbBwbtNTzhLtlvYraK/7/uqmX2Wb2aQtd983uuGw79jAjLSuQ==}
@@ -4631,6 +4676,12 @@ packages:
       lru-cache: 6.0.0
     dev: true
 
+  /html-parse-stringify@3.0.1:
+    resolution: {integrity: sha512-KknJ50kTInJ7qIScF3jeaFRpMpE8/lfiTdzf/twXyPBLAGrLRTmkz3AdTnKeh40X8k9L2fdYwEp/42WGXIRGcg==}
+    dependencies:
+      void-elements: 3.1.0
+    dev: false
+
   /html-tags@3.3.1:
     resolution: {integrity: sha512-ztqyC3kLto0e9WbNp0aeP+M3kTt+nbaIveGmUxAtZa+8iFgKLUOD4YKM5j+f3QD89bra7UeumolZHKuOXnTmeQ==}
     engines: {node: '>=8'}
@@ -4646,6 +4697,18 @@ packages:
     engines: {node: '>=14'}
     hasBin: true
     dev: true
+
+  /i18next-browser-languagedetector@7.0.2:
+    resolution: {integrity: sha512-5ViaK+gikxfqZ9M3jJ7gJkUzzu/p3HwiqfLoL1bdiL7CUb0IylcTyVLdPaTU3pH5VFWFCiGFuJDg3VkLUikWgg==}
+    dependencies:
+      '@babel/runtime': 7.22.5
+    dev: false
+
+  /i18next@23.2.2:
+    resolution: {integrity: sha512-z4fKvPkAs2i5wwALjwBCirwc+Wx6YyToioozvkCgm3o8qW31IDdjHdq0jfFMpB16jIVbINHaOvvF1XXgSEqygA==}
+    dependencies:
+      '@babel/runtime': 7.22.5
+    dev: false
 
   /ignore@5.2.4:
     resolution: {integrity: sha512-MAb38BcSbH0eHNBxn7ql2NH/kX33OkB3lZ1BNdh7ENeRChHTYsTvWrMubiIAMNS2llXEEgZ1MUOBtXChP3kaFQ==}
@@ -6155,7 +6218,6 @@ packages:
       loose-envify: 1.4.0
       object-assign: 4.1.1
       react-is: 16.13.1
-    dev: true
 
   /punycode@2.3.0:
     resolution: {integrity: sha512-rRV+zQD8tVFys26lAGR9WUuS4iUAngJScM+ZRSKtvl5tKeZ2t5bvdNFdNHBW9FWR4guGHlgmsZ1G7BSm2wTbuA==}
@@ -6178,6 +6240,26 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
+    dev: false
+
+  /react-i18next@13.0.0(i18next@23.2.2)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-qRFbrSgynsBSjfnSTb/Um3mw9uPjOfDi4Iq2rMCuzfsRsYGdkEdyCr0i+T0bR0bG6xwULvK4k1oRVLLd7ZDBVw==}
+    peerDependencies:
+      i18next: '>= 23.0.1'
+      react: '>= 16.8.0'
+      react-dom: '*'
+      react-native: '*'
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
+      react-native:
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.22.5
+      html-parse-stringify: 3.0.1
+      i18next: 23.2.2
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /react-is@16.13.1:
@@ -6216,6 +6298,29 @@ packages:
       tslib: 2.5.3
       use-callback-ref: 1.3.0(@types/react@18.0.37)(react@18.2.0)
       use-sidecar: 1.1.2(@types/react@18.0.37)(react@18.2.0)
+    dev: false
+
+  /react-router-dom@6.13.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-6Nqoqd7fgwxxVGdbiMHTpDHCYPq62d7Wk1Of7B82vH7ZPwwsRaIa22zRZKPPg413R5REVNiyuQPKDG1bubcOFA==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      react: '>=16.8'
+      react-dom: '>=16.8'
+    dependencies:
+      '@remix-run/router': 1.6.3
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      react-router: 6.13.0(react@18.2.0)
+    dev: false
+
+  /react-router@6.13.0(react@18.2.0):
+    resolution: {integrity: sha512-Si6KnfEnJw7gUQkNa70dlpI1bul46FuSxX5t5WwlUBxE25DAz2BjVkwaK8Y2s242bQrZPXCpmwLPtIO5pv4tXg==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      react: '>=16.8'
+    dependencies:
+      '@remix-run/router': 1.6.3
+      react: 18.2.0
     dev: false
 
   /react-style-singleton@2.2.1(@types/react@18.0.37)(react@18.2.0):
@@ -6789,6 +6894,15 @@ packages:
       - supports-color
     dev: true
 
+  /stylis-plugin-rtl@2.1.1(stylis@4.2.0):
+    resolution: {integrity: sha512-q6xIkri6fBufIO/sV55md2CbgS5c6gg9EhSVATtHHCdOnbN/jcI0u3lYhNVeuI65c4lQPo67g8xmq5jrREvzlg==}
+    peerDependencies:
+      stylis: 4.x
+    dependencies:
+      cssjanus: 2.1.0
+      stylis: 4.2.0
+    dev: false
+
   /stylis@4.2.0:
     resolution: {integrity: sha512-Orov6g6BB1sDfYgzWfTHDOxamtX1bE/zo104Dh9e6fqJ3PooipYyfJ0pUmrZO2wAvO8YbEyeFrkV91XTsGMSrw==}
     dev: false
@@ -7193,6 +7307,11 @@ packages:
       rollup: 3.25.0
     optionalDependencies:
       fsevents: 2.3.2
+
+  /void-elements@3.1.0:
+    resolution: {integrity: sha512-Dhxzh5HZuiHQhbvTW9AMetFfBHDMYpo23Uo9btPXgdYP+3T5S+p+jgNy7spra+veYhBP2dCSgxR/i2Y02h5/6w==}
+    engines: {node: '>=0.10.0'}
+    dev: false
 
   /which-boxed-primitive@1.0.2:
     resolution: {integrity: sha512-bwZdv0AKLpplFY2KZRX6TvyuN7ojjr7lwkg6ml0roIy9YeuSr7JS372qlNW18UQYzgYK9ziGcerWqZOmEn9VNg==}

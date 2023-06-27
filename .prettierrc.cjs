@@ -16,7 +16,7 @@ module.exports = {
     '^@core/(.*)$',
     '^@server/(.*)$',
     '^@ui/(.*)$',
-    '^(.||@|$)/(.*)$',
+    '^(..|.||@|$)/(.*)$',
   ],
   importOrderSeparation: true,
   importOrderSortSpecifiers: true,
