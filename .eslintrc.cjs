@@ -43,5 +43,7 @@ module.exports = {
     '@typescript-eslint/consistent-type-definitions': 'off',
     '@typescript-eslint/no-floating-promises': 'off',
     '@typescript-eslint/no-confusing-void-expression': 'off',
+    '@typescript-eslint/strict-boolean-expressions': 'off',
+    'tailwindcss/no-custom-classname': 'off',
   },
 };
