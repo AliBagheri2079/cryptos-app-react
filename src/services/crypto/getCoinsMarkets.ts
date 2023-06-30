@@ -2,10 +2,10 @@
 import { useEffect } from 'react';
 
 import cryptoApi from '../api/crypto';
-import type CoinsMarketsData from '@/global/types/Api/Crypto/Data/CoinsMarkets';
-import type CoinsMarketsParams from '@/global/types/Api/Crypto/Params/CoinsMarkets';
-import { type ApiResponse } from '@/global/types/Api/Global/Response';
 import useAxios from '@/hooks/useAxios';
+import type CoinsMarketsData from '@/types/Api/Crypto/Data/CoinsMarkets';
+import type CoinsMarketsParams from '@/types/Api/Crypto/Params/CoinsMarkets';
+import type { ApiResponse } from '@/types/Api/global/Response';
 
 type CoinsMarketsFC = (
   params: CoinsMarketsParams,

@@ -2,10 +2,10 @@
 import { useEffect } from 'react';
 
 import cryptoApi from '../api/crypto';
-import type CoinCandleChartData from '@/global/types/Api/Crypto/Data/CoinCandleChart';
-import type CoinCandleChartParams from '@/global/types/Api/Crypto/Params/CoinCandleChart';
-import { type ApiResponse } from '@/global/types/Api/Global/Response';
 import useAxios from '@/hooks/useAxios';
+import type CoinCandleChartData from '@/types/Api/Crypto/Data/CoinCandleChart';
+import type CoinCandleChartParams from '@/types/Api/Crypto/Params/CoinCandleChart';
+import type { ApiResponse } from '@/types/Api/global/Response';
 
 type CoinCandleChartFC = (
   params: CoinCandleChartParams,

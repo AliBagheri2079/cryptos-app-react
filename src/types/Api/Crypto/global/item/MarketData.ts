@@ -1,0 +1,52 @@
+import type Currency from '../option/Currency';
+import type Sparkline from './Sparkline';
+
+export type MarketDataPrice = Record<Currency, number | string>;
+
+type MarketData = {
+  current_price: MarketDataPrice;
+  total_value_locked?: unknown;
+  mcap_to_tvl_ratio?: unknown;
+  fdv_to_tvl_ratio?: unknown;
+  roi?: unknown;
+  ath: MarketDataPrice;
+  ath_change_percentage: MarketDataPrice;
+  ath_date: MarketDataPrice;
+  atl: MarketDataPrice;
+  atl_change_percentage: MarketDataPrice;
+  atl_date: MarketDataPrice;
+  market_cap: MarketDataPrice;
+  market_cap_rank: number;
+  fully_diluted_valuation: MarketDataPrice;
+  total_volume: MarketDataPrice;
+  high_24h: MarketDataPrice;
+  low_24h: MarketDataPrice;
+  price_change_24h: number;
+  price_change_percentage_24h: number;
+  price_change_percentage_7d: number;
+  price_change_percentage_14d: number;
+  price_change_percentage_30d: number;
+  price_change_percentage_60d: number;
+  price_change_percentage_200d: number;
+  price_change_percentage_1y: number;
+  market_cap_change_24h: number;
+  market_cap_change_percentage_24h: number;
+  price_change_24h_in_currency: MarketDataPrice;
+  price_change_percentage_1h_in_currency: MarketDataPrice;
+  price_change_percentage_24h_in_currency: MarketDataPrice;
+  price_change_percentage_7d_in_currency: MarketDataPrice;
+  price_change_percentage_14d_in_currency: MarketDataPrice;
+  price_change_percentage_30d_in_currency: MarketDataPrice;
+  price_change_percentage_60d_in_currency: MarketDataPrice;
+  price_change_percentage_200d_in_currency: MarketDataPrice;
+  price_change_percentage_1y_in_currency: MarketDataPrice;
+  market_cap_change_24h_in_currency: MarketDataPrice;
+  market_cap_change_percentage_24h_in_currency: MarketDataPrice;
+  total_supply: number;
+  max_supply: number;
+  circulating_supply: number;
+  sparkline_7d: Sparkline;
+  last_updated: string;
+};
+
+export default MarketData;
