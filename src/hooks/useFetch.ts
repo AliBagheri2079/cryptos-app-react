@@ -1,35 +1,33 @@
 import { useEffect, useState } from 'react';
 
-import type { Fetch, UseFetch } from '@/global/types/other/UseFetch';
+import type { Fetch, FetchResponse } from '@/global/types/Api/Global/UseFetch';
 
-type TData = Array<any | null>;
-
-export const useFetch: UseFetch<TData> = () => {
-  const [data, setData] = useState<TData>([]);
-  const [status, setStatus] = useState<number | null>(null);
-  const [error, setError] = useState<Error | null>(null);
+function useFetch<T>(): [FetchResponse<T>, Fetch] {
+  const [response, setResponse] = useState<T | undefined>();
+  const [statusCode, setStatusCode] = useState<number | null>(null);
+  const [errorMessage, setErrorMessage] = useState<Error | null>(null);
   const [isLoading, setLoading] = useState<boolean>(false);
   const [controller, setController] = useState<AbortController>();
 
-  const fetchFC: Fetch = async (input, init) => {
+  const fetchHandler: Fetch = async (input, init) => {
     try {
       setLoading(true);
       const ctrl = new AbortController();
       setController(ctrl);
 
-      const response = await fetch(input, {
+      const res = await fetch(input, {
         ...init,
         signal: ctrl.signal,
       });
-      const data = await response.json();
-      const status = response.status;
+      const data = await res.json();
+      const status = res.status;
 
-      setData(data);
-      setStatus(status);
+      setResponse(data);
+      setStatusCode(status);
     } catch (error: unknown) {
       if (error instanceof Error) {
         console.error(`error message: ${error.message}`);
-        setError(error);
+        setErrorMessage(error);
       } else {
         throw new Error('An unexpected error occurred');
       }
@@ -42,7 +40,7 @@ export const useFetch: UseFetch<TData> = () => {
     return () => controller && controller.abort();
   }, [controller]);
 
-  return [{ data, status, error, isLoading }, fetchFC];
-};
+  return [{ response, statusCode, errorMessage, isLoading }, fetchHandler];
+}
 
 export default useFetch;
