@@ -1,4 +1,4 @@
-import { type ApiResponse } from './ApiResponse';
+import { type ApiResponse } from './Response';
 
 export type FetchResponse<T> = ApiResponse<T>;
 
@@ -7,4 +7,6 @@ export type Fetch = (
   init?: RequestInit | undefined,
 ) => Promise<void>;
 
-export type UseFetch<T> = () => [FetchResponse<T>, Fetch];
+type UseFetch<T> = () => [FetchResponse<T>, Fetch];
+
+export default UseFetch;
