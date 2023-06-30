@@ -10,7 +10,7 @@ export const resources: Resource = {
 
       // * Nav link data
       nav_link_1: 'Home',
-      nav_link_2: 'Dashboard',
+      nav_link_2: 'Crypto',
       nav_link_3: 'Market news',
       nav_link_3_item_1: 'Overview',
       nav_link_3_item_2: 'Forecasts',
@@ -47,7 +47,7 @@ export const resources: Resource = {
 
       // * داده های لینک
       nav_link_1: 'خانه',
-      nav_link_2: 'داشبورد',
+      nav_link_2: 'ارز دیجیتال',
       nav_link_3: 'اخبار',
       nav_link_3_item_1: 'مطالعه',
       nav_link_3_item_2: 'شنیده ها',

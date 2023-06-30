@@ -8,15 +8,15 @@ export const router = createBrowserRouter([
     path: '/home',
     element: (
       <Dashboard>
-        <Crypto />
+        <div>home</div>
       </Dashboard>
     ),
   },
   {
-    path: '/dashboard',
+    path: '/crypto',
     element: (
       <Dashboard>
-        <div>dashboard</div>
+        <Crypto />
       </Dashboard>
     ),
   },

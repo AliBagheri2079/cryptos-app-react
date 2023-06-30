@@ -1,16 +1,16 @@
 import {
+  IconBrandCoinbase,
   IconCalendarStats,
   IconDeviceDesktopAnalytics,
   IconFileAnalytics,
   IconFingerprint,
-  IconGauge,
   IconHome2,
   IconNotes,
   IconSettings,
   IconUser,
 } from '@tabler/icons-react';
 
-import { type NavLinkProps } from '@/global/types/Prop/NavLink';
+import type NavLinkProps from '@/global/types/Prop/NavLink';
 
 export const navLinkData: NavLinkProps[] = [
   {
@@ -20,8 +20,8 @@ export const navLinkData: NavLinkProps[] = [
   },
   {
     label: 'nav_link_2',
-    link: '/dashboard',
-    icon: IconGauge,
+    link: '/crypto',
+    icon: IconBrandCoinbase,
   },
   {
     label: 'nav_link_3',
