@@ -10,7 +10,7 @@ import {
   IconUser,
 } from '@tabler/icons-react';
 
-import type NavLinkProps from '@/global/types/Prop/NavLink';
+import type NavLinkProps from '@/types/Prop/NavLink';
 
 export const navLinkData: NavLinkProps[] = [
   {

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import type { Fetch, FetchResponse } from '@/global/types/Api/Global/UseFetch';
+import type { Fetch, FetchResponse } from '@/types/Api/global/UseFetch';
 
 function useFetch<T>(): [FetchResponse<T>, Fetch] {
   const [response, setResponse] = useState<T | undefined>();

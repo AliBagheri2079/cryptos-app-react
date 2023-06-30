@@ -1,10 +1,7 @@
 import { isAxiosError } from 'axios';
 import { useEffect, useState } from 'react';
 
-import type {
-  AxiosFetch,
-  AxiosResponse,
-} from '@/global/types/Api/Global/UseAxios';
+import type { AxiosFetch, AxiosResponse } from '@/types/Api/global/UseAxios';
 
 function useAxios<T>(): [AxiosResponse<T>, AxiosFetch] {
   const [response, setResponse] = useState<T | undefined>();

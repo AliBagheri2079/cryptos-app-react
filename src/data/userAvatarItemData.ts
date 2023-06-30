@@ -5,7 +5,7 @@ import {
   IconTrash,
 } from '@tabler/icons-react';
 
-import { type UserAvatarItemProps } from '@/global/types/Prop/UserAvatarItem';
+import type UserAvatarItemProps from '@/types/Prop/UserAvatarItem';
 
 export const userAvatarItemData: UserAvatarItemProps[] = [
   {

@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import { type Direction } from '@/global/types/other/Direction';
+import { type Direction } from '@/types/utility/Direction';
 
 type ToggleDirectionType = (value?: Direction) => void;
 

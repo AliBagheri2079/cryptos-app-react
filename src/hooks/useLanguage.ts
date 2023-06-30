@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import { type Language } from '@/global/types/other/Language';
+import { type Language } from '@/types/utility/Language';
 
 type ToggleLanguageType = (value?: Language) => void;
 
