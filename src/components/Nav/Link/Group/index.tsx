@@ -5,7 +5,7 @@ import { Trans } from 'react-i18next';
 import { NavLink, useMatches } from 'react-router-dom';
 
 import { useGroupStyles } from './index.style';
-import { type NavLinkProps } from '@/global/types/Prop/NavLink';
+import type NavLinkProps from '@/types/Prop/NavLink';
 import { randomId } from '@/utils/helpers/randomId';
 
 interface LinkGroupProp {

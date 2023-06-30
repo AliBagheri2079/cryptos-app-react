@@ -1,4 +1,4 @@
-import { type IconProp } from './Icon';
+import type IconProp from './Icon';
 
 export type NavLinkInfo = {
   label: string;

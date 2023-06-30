@@ -10,7 +10,7 @@ import {
 import { useNetwork } from '@mantine/hooks';
 import { forwardRef } from 'react';
 
-import { type UserAvatarButtonProps } from '@/global/interfaces/UserAvatarButtonProps';
+import type UserAvatarButtonProps from '@/types/Prop/UserAvatarButton';
 import { shortName } from '@/utils/helpers/shortName';
 
 const UserAvatarButton = forwardRef<HTMLButtonElement, UserAvatarButtonProps>(
