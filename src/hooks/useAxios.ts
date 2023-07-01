@@ -4,6 +4,12 @@ import { useEffect, useState } from 'react';
 import type { AxiosFetch, AxiosResponse } from '@/types/Api/global/UseAxios';
 
 function useAxios<T>(): [AxiosResponse<T>, AxiosFetch] {
+  /*
+    TODO: update data value to:
+    NOTE: response => data
+    NOTE: statusCode => status
+    NOTE: errorMessage => error
+  */
   const [response, setResponse] = useState<T | undefined>();
   const [statusCode, setStatusCode] = useState<number | null>(null);
   const [errorMessage, setErrorMessage] = useState<Error | null>(null);
@@ -16,6 +22,11 @@ function useAxios<T>(): [AxiosResponse<T>, AxiosFetch] {
 
       const ctrl = new AbortController();
       setController(ctrl);
+      /*
+        TODO: update data value to:
+        NOTE: data => response.data
+        NOTE: status => response.status
+      */
       const { data, status } = await instance({
         ...options,
         signal: ctrl.signal,
