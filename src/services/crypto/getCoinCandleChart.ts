@@ -5,7 +5,7 @@ import cryptoApi from '../api/crypto';
 import useAxios from '@/hooks/useAxios';
 import type CoinCandleChartData from '@/types/Api/Crypto/Data/CoinCandleChart';
 import type CoinCandleChartParams from '@/types/Api/Crypto/Params/CoinCandleChart';
-import type { ApiResponse } from '@/types/Api/global/Response';
+import type ApiResponse from '@/types/Api/global/Response';
 
 type CoinCandleChartFC = (
   params: CoinCandleChartParams,

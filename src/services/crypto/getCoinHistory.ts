@@ -5,7 +5,7 @@ import cryptoApi from '../api/crypto';
 import useAxios from '@/hooks/useAxios';
 import type CoinHistoryData from '@/types/Api/Crypto/Data/CoinHistory';
 import type CoinHistoryParams from '@/types/Api/Crypto/Params/CoinHistory';
-import type { ApiResponse } from '@/types/Api/global/Response';
+import type ApiResponse from '@/types/Api/global/Response';
 
 type CoinHistoryFC = (
   params: CoinHistoryParams,

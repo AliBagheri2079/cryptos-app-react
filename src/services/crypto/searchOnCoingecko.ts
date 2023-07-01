@@ -5,7 +5,7 @@ import cryptoApi from '../api/crypto';
 import useAxios from '@/hooks/useAxios';
 import type SearchOnCoingeckoData from '@/types/Api/Crypto/Data/SearchOnCoingecko';
 import type SearchOnCoingeckoParams from '@/types/Api/Crypto/Params/SearchOnCoingecko';
-import type { ApiResponse } from '@/types/Api/global/Response';
+import type ApiResponse from '@/types/Api/global/Response';
 
 type SearchOnCoingeckoFC = (
   params: SearchOnCoingeckoParams,

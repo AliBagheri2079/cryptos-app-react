@@ -5,7 +5,7 @@ import cryptoApi from '../api/crypto';
 import useAxios from '@/hooks/useAxios';
 import type CoinsMarketsData from '@/types/Api/Crypto/Data/CoinsMarkets';
 import type CoinsMarketsParams from '@/types/Api/Crypto/Params/CoinsMarkets';
-import type { ApiResponse } from '@/types/Api/global/Response';
+import type ApiResponse from '@/types/Api/global/Response';
 
 type CoinsMarketsFC = (
   params: CoinsMarketsParams,
