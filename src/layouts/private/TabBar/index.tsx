@@ -17,7 +17,9 @@ const TabBar: FC = () => {
       sx={theme => ({
         border: 'unset',
         insetBlock: 'auto 0',
-        insetInline: theme.spacing.xs,
+        maskImage: `linear-gradient(to bottom, transparent 0%, ${
+          theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white
+        } 25%)`,
       })}
     >
       <Navbar.Section component={ScrollArea} grow>
@@ -31,12 +33,9 @@ const TabBar: FC = () => {
             sx={theme => ({
               backgroundColor: theme.fn.variant({
                 variant: 'light',
-                color:
-                  theme.colorScheme === 'dark'
-                    ? theme.colors.dark[5]
-                    : theme.colors.gray[2],
+                color: theme.primaryColor,
               }).background,
-
+              backdropFilter: 'blur(10px)',
               borderRadius: theme.spacing.xs,
             })}
           >

@@ -37,7 +37,7 @@ const UserAvatarButton = forwardRef<HTMLButtonElement, UserAvatarButtonProps>(
             withBorder
           >
             <Avatar
-              src={image ?? null}
+              src={image}
               alt={shortUserName}
               variant='filled'
               radius='xl'

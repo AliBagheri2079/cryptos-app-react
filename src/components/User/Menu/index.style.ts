@@ -12,6 +12,6 @@ export const useMenuStyles = createStyles(theme => ({
       variant: 'light',
       color: theme.primaryColor,
     }).background,
-    backdropFilter: 'blur(10px) saturate(180%)',
+    backdropFilter: 'blur(10px)',
   },
 }));
