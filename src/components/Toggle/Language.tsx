@@ -6,6 +6,7 @@ import { type FC } from 'react';
 import useDirection from '@/hooks/useDirection';
 import useLanguage from '@/hooks/useLanguage';
 
+// TODO: replace text and icon with just cuntry flag
 const ToggleLanguage: FC = () => {
   const [language, toggleLanguage] = useLanguage();
   const [, toggleDirection] = useDirection();
