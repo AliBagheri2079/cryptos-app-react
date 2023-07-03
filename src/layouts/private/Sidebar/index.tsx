@@ -11,7 +11,7 @@ import { type FC } from 'react';
 
 import { BrandLogo, BrandTitle } from '@/components/Brand';
 import { LinkGroup, LinkMinimal } from '@/components/Nav/Link';
-import { navLinkData } from '@/data/navLinkData';
+import { navLinkData } from '@/data/navLink';
 import { randomId } from '@/utils/helpers/randomId';
 
 const Sidebar: FC = () => {
