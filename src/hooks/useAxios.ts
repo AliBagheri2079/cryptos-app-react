@@ -1,20 +1,21 @@
 import { isAxiosError } from 'axios';
 import { useEffect, useState } from 'react';
 
-import type { AxiosFetch, AxiosResponse } from '@/types/Api/global/UseAxios';
+import type {
+  AxiosFetch,
+  AxiosRefetch,
+  AxiosResponse,
+} from '@/types/Api/global/UseAxios';
 
-function useAxios<T>(): [AxiosResponse<T>, AxiosFetch] {
-  /*
-    TODO: update data value to:
-    NOTE: response => data
-    NOTE: statusCode => status
-    NOTE: errorMessage => error
-  */
-  const [response, setResponse] = useState<T | undefined>();
-  const [statusCode, setStatusCode] = useState<number | null>(null);
-  const [errorMessage, setErrorMessage] = useState<Error | null>(null);
+function useAxios<T>(): [AxiosResponse<T>, AxiosFetch, AxiosRefetch] {
+  const [data, setData] = useState<T | undefined>();
+  const [status, setStatus] = useState<number | null>(null);
+  const [error, setError] = useState<Error | null>(null);
   const [isLoading, setLoading] = useState<boolean>(false);
   const [controller, setController] = useState<AbortController>();
+  const [reload, setReload] = useState<number>(0);
+
+  const refetch = (): void => setReload(prev => prev + 1);
 
   const axiosFetch: AxiosFetch = async (instance, options) => {
     try {
@@ -22,22 +23,18 @@ function useAxios<T>(): [AxiosResponse<T>, AxiosFetch] {
 
       const ctrl = new AbortController();
       setController(ctrl);
-      /*
-        TODO: update data value to:
-        NOTE: data => response.data
-        NOTE: status => response.status
-      */
-      const { data, status } = await instance({
+
+      const response = await instance({
         ...options,
         signal: ctrl.signal,
       });
 
-      setResponse(data);
-      setStatusCode(status);
-    } catch (error: unknown) {
-      if (isAxiosError(error)) {
-        console.error(`error message: ${error.message}`);
-        setErrorMessage(error);
+      setData(response.data);
+      setStatus(response.status);
+    } catch (err: unknown) {
+      if (isAxiosError(err)) {
+        console.error(`error message: ${err.message}`);
+        setError(err);
       } else {
         throw new Error('An unexpected error occurred');
       }
@@ -50,7 +47,7 @@ function useAxios<T>(): [AxiosResponse<T>, AxiosFetch] {
     return () => controller && controller.abort();
   }, [controller]);
 
-  return [{ response, statusCode, errorMessage, isLoading }, axiosFetch];
+  return [{ data, status, error, isLoading }, axiosFetch, { reload, refetch }];
 }
 
 export default useAxios;

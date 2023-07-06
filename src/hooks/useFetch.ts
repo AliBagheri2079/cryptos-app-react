@@ -1,33 +1,41 @@
 import { useEffect, useState } from 'react';
 
-import type { FetchHandler, FetchResponse } from '@/types/Api/global/UseFetch';
+import type {
+  FetchAgain,
+  FetchMethod,
+  FetchResponse,
+} from '@/types/Api/global/UseFetch';
 
-function useFetch<T>(): [FetchResponse<T>, FetchHandler] {
-  const [response, setResponse] = useState<T | undefined>();
-  const [statusCode, setStatusCode] = useState<number | null>(null);
-  const [errorMessage, setErrorMessage] = useState<Error | null>(null);
+function useFetch<T>(): [FetchResponse<T>, FetchMethod, FetchAgain] {
+  const [data, setData] = useState<T | undefined>();
+  const [status, setStatus] = useState<number | null>(null);
+  const [error, setError] = useState<Error | null>(null);
   const [isLoading, setLoading] = useState<boolean>(false);
   const [controller, setController] = useState<AbortController>();
+  const [reload, setReload] = useState<number>(0);
 
-  const fetchHandler: FetchHandler = async (input, init) => {
+  const refetch = (): void => setReload(prev => prev + 1);
+
+  const fetchMethod: FetchMethod = async (input, init) => {
     try {
       setLoading(true);
+
       const ctrl = new AbortController();
       setController(ctrl);
 
-      const res = await fetch(input, {
+      const response = await fetch(input, {
         ...init,
         signal: ctrl.signal,
       });
-      const data = await res.json();
-      const status = res.status;
+      const responseData = await response.json();
+      const responseStatus = response.status;
 
-      setResponse(data);
-      setStatusCode(status);
+      setData(responseData);
+      setStatus(responseStatus);
     } catch (error: unknown) {
       if (error instanceof Error) {
         console.error(`error message: ${error.message}`);
-        setErrorMessage(error);
+        setError(error);
       } else {
         throw new Error('An unexpected error occurred');
       }
@@ -40,7 +48,7 @@ function useFetch<T>(): [FetchResponse<T>, FetchHandler] {
     return () => controller && controller.abort();
   }, [controller]);
 
-  return [{ response, statusCode, errorMessage, isLoading }, fetchHandler];
+  return [{ data, status, error, isLoading }, fetchMethod, { reload, refetch }];
 }
 
 export default useFetch;

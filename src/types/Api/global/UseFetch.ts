@@ -1,12 +1,15 @@
 import type ApiResponse from './Response';
 
-export type FetchResponse<T> = ApiResponse<T>;
+type FetchResponse<T> = ApiResponse<T>;
 
-export type FetchHandler = (
+type FetchMethod = (
   input: RequestInfo | URL,
   init?: RequestInit | undefined,
 ) => Promise<void>;
 
-type UseFetch<T> = () => [FetchResponse<T>, FetchHandler];
+type FetchAgain = {
+  reload: number;
+  refetch: () => void;
+};
 
-export default UseFetch;
+export type { FetchResponse, FetchMethod, FetchAgain };

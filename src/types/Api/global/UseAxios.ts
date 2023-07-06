@@ -2,13 +2,16 @@ import type { AxiosInstance, AxiosRequestConfig } from 'axios';
 
 import type ApiResponse from './Response';
 
-export type AxiosResponse<T> = ApiResponse<T>;
+type AxiosResponse<T> = ApiResponse<T>;
 
-export type AxiosFetch = (
+type AxiosFetch = (
   instance: AxiosInstance,
   options: AxiosRequestConfig,
 ) => Promise<void>;
 
-type UseAxios<T> = () => [AxiosResponse<T>, AxiosFetch];
+type AxiosRefetch = {
+  reload: number;
+  refetch: () => void;
+};
 
-export default UseAxios;
+export type { AxiosResponse, AxiosFetch, AxiosRefetch };

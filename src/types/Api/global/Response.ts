@@ -1,7 +1,7 @@
 type ApiResponse<T> = {
-  response: T | undefined;
-  statusCode: number | null;
-  errorMessage: Error | null;
+  data: T | undefined;
+  status: number | null;
+  error: Error | null;
   isLoading: boolean;
 };
 
