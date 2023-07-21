@@ -1,31 +1,61 @@
 import { createBrowserRouter } from 'react-router-dom';
 
 import Dashboard from '@/layouts/private/Dashboard';
-import { Crypto } from '@/pages';
+import { Coin, Crypto } from '@/pages';
 
 export const router = createBrowserRouter([
   {
-    path: '/home',
-    element: (
-      <Dashboard>
-        <div>home</div>
-      </Dashboard>
-    ),
+    path: '/dashboard',
+    children: [
+      {
+        index: true,
+        element: (
+          <Dashboard>
+            <h1>redirect</h1>
+          </Dashboard>
+        ),
+      },
+      {
+        path: 'crypto',
+        children: [
+          {
+            index: true,
+            element: (
+              <Dashboard>
+                <Crypto />
+              </Dashboard>
+            ),
+          },
+          {
+            path: ':id',
+            element: (
+              <Dashboard>
+                <Coin />
+              </Dashboard>
+            ),
+          },
+        ],
+      },
+    ],
   },
   {
-    path: '/crypto',
-    element: (
-      <Dashboard>
-        <Crypto />
-      </Dashboard>
-    ),
-  },
-  {
-    path: '/market-news',
-    element: (
-      <Dashboard>
-        <div>market news</div>
-      </Dashboard>
-    ),
+    // children: [
+    //   {
+    // with this data loaded before rendering
+    // loader: async ({ request, params }) => {
+    //   return fetch(
+    //     `/fake/api/teams/${params.teamId}.json`,
+    //     { signal: request.signal }
+    //   );
+    // },
+    // performing this mutation when data is submitted to it
+    // action: async ({ request }) => {
+    //   return updateFakeTeam(await request.formData());
+    // },
+    // errorElement: <ErrorBoundary />,
+    //     path: 'crypto/:id',
+    //     element: <Coin />,
+    //   },
+    // ],
   },
 ]);
