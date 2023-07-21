@@ -1,3 +1,4 @@
+import type RefetchItems from './Refetch';
 import type ApiResponse from './Response';
 
 type FetchResponse<T> = ApiResponse<T>;
@@ -12,4 +13,6 @@ type FetchAgain = {
   refetch: () => void;
 };
 
-export type { FetchResponse, FetchMethod, FetchAgain };
+type FetchAgainItems<T> = RefetchItems<T>;
+
+export type { FetchResponse, FetchMethod, FetchAgain, FetchAgainItems };

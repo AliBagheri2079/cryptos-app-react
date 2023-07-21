@@ -23,7 +23,7 @@ type CoinsMarketsData = DefaultCoinData & {
   atl_change_percentage?: number;
   atl_date?: string;
   roi?: unknown;
-  sparkline_in_7d: Sparkline;
+  sparkline_in_7d?: Sparkline;
   price_change_percentage_24h_in_currency?: number;
 };
 

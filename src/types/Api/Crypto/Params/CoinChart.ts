@@ -2,7 +2,7 @@ import type CoinsMarketsParams from './CoinsMarkets';
 
 type CoinChartParams = Pick<CoinsMarketsParams, 'vs_currency' | 'precision'> & {
   id: string;
-  days: number;
+  days?: number;
   interval?: 'daily';
 };
 
