@@ -5,29 +5,31 @@ import cryptoApi from '../api/crypto';
 import useAxios from '@/hooks/useAxios';
 import type SearchOnCoingeckoData from '@/types/Api/Crypto/Data/SearchOnCoingecko';
 import type SearchOnCoingeckoParams from '@/types/Api/Crypto/Params/SearchOnCoingecko';
-import type ApiResponse from '@/types/Api/global/Response';
+import type {
+  AxiosRefetchItems,
+  AxiosResponse,
+} from '@/types/Api/global/UseAxios';
 
 type SearchOnCoingeckoFC = (
   params: SearchOnCoingeckoParams,
-) => ApiResponse<SearchOnCoingeckoData>;
+  refetchItems: AxiosRefetchItems<string | undefined>,
+) => AxiosResponse<SearchOnCoingeckoData>;
 
-const searchOnCoingecko: SearchOnCoingeckoFC = params => {
-  const [{ response, statusCode, errorMessage, isLoading }, axiosFetch] =
-    useAxios<SearchOnCoingeckoData>();
+const searchOnCoingecko: SearchOnCoingeckoFC = (params, refetchItems) => {
+  const [axiosResponse, axiosFetch] = useAxios<SearchOnCoingeckoData>();
 
   useEffect(() => {
-    const getData = async (): Promise<void> => {
+    (async () => {
       await axiosFetch(cryptoApi, {
         method: 'get',
         url: '/search',
         params,
       });
-    };
-    getData();
+    })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, refetchItems);
 
-  return { response, statusCode, errorMessage, isLoading };
+  return axiosResponse;
 };
 
 export default searchOnCoingecko;

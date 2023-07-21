@@ -5,11 +5,14 @@ import cryptoApi from '../api/crypto';
 import useAxios from '@/hooks/useAxios';
 import type CoinsMarketsData from '@/types/Api/Crypto/Data/CoinsMarkets';
 import type CoinsMarketsParams from '@/types/Api/Crypto/Params/CoinsMarkets';
-import type { AxiosResponse } from '@/types/Api/global/UseAxios';
+import type {
+  AxiosRefetchItems,
+  AxiosResponse,
+} from '@/types/Api/global/UseAxios';
 
 type CoinsMarketsFC = (
   params: CoinsMarketsParams,
-  refetchItems: Array<string | number | undefined>,
+  refetchItems: AxiosRefetchItems<string | number | undefined>,
 ) => AxiosResponse<CoinsMarketsData[]>;
 
 const getCoinsMarkets: CoinsMarketsFC = (params, refetchItems) => {
@@ -24,7 +27,7 @@ const getCoinsMarkets: CoinsMarketsFC = (params, refetchItems) => {
       });
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [...refetchItems]);
+  }, refetchItems);
 
   return axiosResponse;
 };

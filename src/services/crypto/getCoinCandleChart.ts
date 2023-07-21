@@ -5,29 +5,34 @@ import cryptoApi from '../api/crypto';
 import useAxios from '@/hooks/useAxios';
 import type CoinCandleChartData from '@/types/Api/Crypto/Data/CoinCandleChart';
 import type CoinCandleChartParams from '@/types/Api/Crypto/Params/CoinCandleChart';
-import type ApiResponse from '@/types/Api/global/Response';
+import type {
+  AxiosRefetchItems,
+  AxiosResponse,
+} from '@/types/Api/global/UseAxios';
 
 type CoinCandleChartFC = (
   params: CoinCandleChartParams,
-) => ApiResponse<CoinCandleChartData>;
+  refetchItems: AxiosRefetchItems<string | number | undefined>,
+) => AxiosResponse<CoinCandleChartData>;
 
-const getCoinCandleChart: CoinCandleChartFC = ({ id, ...params }) => {
-  const [{ response, statusCode, errorMessage, isLoading }, axiosFetch] =
-    useAxios<CoinCandleChartData>();
+const getCoinCandleChart: CoinCandleChartFC = (
+  { id, ...params },
+  refetchItems,
+) => {
+  const [axiosResponse, axiosFetch] = useAxios<CoinCandleChartData>();
 
   useEffect(() => {
-    const getData = async (): Promise<void> => {
+    (async () => {
       await axiosFetch(cryptoApi, {
         method: 'get',
         url: `/coins/${id}/ohlc`,
         params,
       });
-    };
-    getData();
+    })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, refetchItems);
 
-  return { response, statusCode, errorMessage, isLoading };
+  return axiosResponse;
 };
 
 export default getCoinCandleChart;
