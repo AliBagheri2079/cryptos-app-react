@@ -35,6 +35,7 @@
     "i18next-browser-languagedetector": "^7.0.2",
     "mantine-react-table": "1.0.0-beta.24",
     "react": "^18.2.0",
+    "react-content-loader": "^6.2.1",
     "react-dom": "^18.2.0",
     "react-i18next": "^13.0.0",
     "react-router-dom": "^6.13.0",
