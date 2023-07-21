@@ -1,43 +1,54 @@
-const narrowFormat: Intl.RelativeTimeFormat = new Intl.RelativeTimeFormat(
-  'en',
-  {
+type FormatFC<T> = (language: string) => T;
+
+const narrowTimeFormat: FormatFC<Intl.RelativeTimeFormat> = language => {
+  return new Intl.RelativeTimeFormat(language, {
     style: 'narrow',
-  },
-);
+  });
+};
 
-const currencyFormat: Intl.NumberFormat = new Intl.NumberFormat('en-US', {
-  style: 'currency',
-  currency: 'USD',
-  maximumFractionDigits: 2,
-});
+const currencyNumberFormat: FormatFC<Intl.NumberFormat> = language => {
+  return new Intl.NumberFormat(language, {
+    style: 'currency',
+    currency: 'USD',
+    maximumFractionDigits: 2,
+  });
+};
 
-const percentFormat: Intl.NumberFormat = new Intl.NumberFormat('en-US', {
-  style: 'percent',
-  signDisplay: 'exceptZero',
-});
+const percentUnitFormat: FormatFC<Intl.NumberFormat> = language => {
+  return new Intl.NumberFormat(language, {
+    style: 'percent',
+    signDisplay: 'exceptZero',
+  });
+};
 
-const celsiusFormat: Intl.NumberFormat = new Intl.NumberFormat('en-US', {
-  style: 'unit',
-  unit: 'celsius',
-  notation: 'compact',
-  maximumFractionDigits: 0,
-});
+const celsiusUnitFormat: FormatFC<Intl.NumberFormat> = language => {
+  return new Intl.NumberFormat(language, {
+    style: 'unit',
+    unit: 'celsius',
+    notation: 'compact',
+    maximumFractionDigits: 0,
+  });
+};
 
-const shortFormat: Intl.NumberFormat = new Intl.NumberFormat('en-US', {
-  notation: 'compact',
-  compactDisplay: 'short',
-});
+const shortCompactFormat: FormatFC<Intl.NumberFormat> = language => {
+  return new Intl.NumberFormat(language, {
+    notation: 'compact',
+    compactDisplay: 'short',
+  });
+};
 
-const speedFormat: Intl.NumberFormat = new Intl.NumberFormat('en-US', {
-  style: 'unit',
-  unit: 'kilometer-per-hour',
-});
+const speedUnitFormat: FormatFC<Intl.NumberFormat> = language => {
+  return new Intl.NumberFormat(language, {
+    style: 'unit',
+    unit: 'kilometer-per-hour',
+  });
+};
 
 export {
-  narrowFormat,
-  currencyFormat,
-  percentFormat,
-  celsiusFormat,
-  shortFormat,
-  speedFormat,
+  narrowTimeFormat,
+  currencyNumberFormat,
+  percentUnitFormat,
+  celsiusUnitFormat,
+  shortCompactFormat,
+  speedUnitFormat,
 };
