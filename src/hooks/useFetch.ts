@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import type {
   FetchAgain,
@@ -16,7 +16,7 @@ function useFetch<T>(): [FetchResponse<T>, FetchMethod, FetchAgain] {
 
   const refetch = (): void => setReload(prev => prev + 1);
 
-  const fetchMethod: FetchMethod = async (input, init) => {
+  const fetchMethod: FetchMethod = useCallback(async (input, init) => {
     try {
       setLoading(true);
 
@@ -42,7 +42,7 @@ function useFetch<T>(): [FetchResponse<T>, FetchMethod, FetchAgain] {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
   useEffect(() => {
     return () => controller && controller.abort();

@@ -1,5 +1,5 @@
 import { isAxiosError } from 'axios';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import type {
   AxiosFetch,
@@ -17,7 +17,7 @@ function useAxios<T>(): [AxiosResponse<T>, AxiosFetch, AxiosRefetch] {
 
   const refetch = (): void => setReload(prev => prev + 1);
 
-  const axiosFetch: AxiosFetch = async (instance, options) => {
+  const axiosFetch: AxiosFetch = useCallback(async (instance, options) => {
     try {
       setLoading(true);
 
@@ -25,8 +25,8 @@ function useAxios<T>(): [AxiosResponse<T>, AxiosFetch, AxiosRefetch] {
       setController(ctrl);
 
       const response = await instance({
-        ...options,
         signal: ctrl.signal,
+        ...options,
       });
 
       setData(response.data);
@@ -41,7 +41,7 @@ function useAxios<T>(): [AxiosResponse<T>, AxiosFetch, AxiosRefetch] {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
   useEffect(() => {
     return () => controller && controller.abort();
