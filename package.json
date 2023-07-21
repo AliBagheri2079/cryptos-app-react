@@ -23,6 +23,7 @@
     "@mantine/core": "^6.0.13",
     "@mantine/dates": "^6.0.16",
     "@mantine/hooks": "^6.0.13",
+    "@mantine/spotlight": "^6.0.17",
     "@tabler/icons-react": "^2.22.0",
     "@tanstack/react-table": "^8.9.3",
     "@types/node": "^20.3.0",
