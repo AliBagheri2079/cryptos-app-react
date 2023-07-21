@@ -1,7 +1,7 @@
 import { Tooltip, UnstyledButton, useMantineTheme } from '@mantine/core';
 import { createElement, type FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { NavLink, useMatches } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 import { useMinimalStyles } from './index.style';
 import type NavLinkProps from '@/types/Prop/NavLink';
@@ -12,7 +12,7 @@ const LinkMinimal: FC<Omit<NavLinkProps, 'items' | 'opened'>> = ({
   icon,
 }) => {
   const { classes, cx } = useMinimalStyles();
-  const [{ pathname }] = useMatches();
+  const { pathname } = useLocation();
   const theme = useMantineTheme();
   const { t } = useTranslation();
 

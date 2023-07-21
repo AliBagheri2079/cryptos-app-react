@@ -2,7 +2,7 @@ import { Box, Collapse, Group, Text, UnstyledButton } from '@mantine/core';
 import { IconChevronLeft, IconChevronRight } from '@tabler/icons-react';
 import { createElement, type FC, useState } from 'react';
 import { Trans } from 'react-i18next';
-import { NavLink, useMatches } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 import { useGroupStyles } from './index.style';
 import type NavLinkProps from '@/types/Prop/NavLink';
@@ -18,7 +18,7 @@ const LinkGroupButton: FC<
   LinkGroupProp & Omit<NavLinkProps, 'items' | 'opened'>
 > = ({ open, handleOpen, hasLinks, label, link, icon }) => {
   const { classes, theme, cx } = useGroupStyles();
-  const [{ pathname }] = useMatches();
+  const { pathname } = useLocation();
 
   const ChevronIcon = theme.dir === 'ltr' ? IconChevronRight : IconChevronLeft;
   return (
