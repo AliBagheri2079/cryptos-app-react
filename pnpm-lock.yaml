@@ -175,6 +175,9 @@ devDependencies:
   typescript:
     specifier: ^5.0.2
     version: 5.0.2
+  typescript-plugin-styled-components:
+    specifier: ^3.0.0
+    version: 3.0.0(typescript@5.0.2)
   vite:
     specifier: ^4.3.9
     version: 4.3.9(@types/node@20.3.0)
@@ -7798,6 +7801,14 @@ packages:
       call-bind: 1.0.2
       for-each: 0.3.3
       is-typed-array: 1.1.10
+    dev: true
+
+  /typescript-plugin-styled-components@3.0.0(typescript@5.0.2):
+    resolution: {integrity: sha512-QWlhTl6NqsFxtJyxn7pJjm3RhgzXSByUftZ3AoQClrMMpa4yAaHuJKTN1gFpH3Ti+Rwm56fNUfG9pXSBU+WW3A==}
+    peerDependencies:
+      typescript: ~4.8 || 5
+    dependencies:
+      typescript: 5.0.2
     dev: true
 
   /typescript@5.0.2:
