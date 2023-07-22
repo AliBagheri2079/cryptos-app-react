@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 
 import Dashboard from '@/layouts/private/Dashboard';
-import { Coin, Crypto } from '@/pages';
+import { Coin, Crypto, NothingFound } from '@/pages';
 
 export const router = createBrowserRouter([
   {
@@ -37,6 +37,10 @@ export const router = createBrowserRouter([
         ],
       },
     ],
+  },
+  {
+    path: '*',
+    element: <NothingFound />,
   },
   {
     // children: [
