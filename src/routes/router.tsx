@@ -41,7 +41,7 @@ export const router = createBrowserRouter([
               </Dashboard>
             ),
             errorElement: <CoinPageError />,
-            loader: CoinPageLoader,
+            // loader: CoinPageLoader,
           },
         ],
       },
