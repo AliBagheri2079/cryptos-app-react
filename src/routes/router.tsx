@@ -1,14 +1,24 @@
+/* eslint-disable react-refresh/only-export-components */
+import { lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
 import Dashboard from '@/layouts/private/Dashboard';
-import {
-  CoinPage,
-  CoinPageError,
-  CoinPageLoader,
-  CryptoPage,
-  NothingFoundPage,
-  RedirectPage,
-} from '@/pages';
+
+// import {
+//   CoinPage,
+//   CoinPageError,
+//   CryptoPage,
+//   NothingFoundPage,
+//   RedirectPage,
+// } from '@/pages';
+
+const CoinPage = lazy(async () => await import('@/pages/Coin'));
+const CoinPageError = lazy(async () => await import('@/pages/Coin/Error'));
+const CryptoPage = lazy(async () => await import('@/pages/Crypto'));
+const NothingFoundPage = lazy(
+  async () => await import('@/pages/Status/NothingFound'),
+);
+const RedirectPage = lazy(async () => await import('@/pages/Status/Redirect'));
 
 export const router = createBrowserRouter([
   {

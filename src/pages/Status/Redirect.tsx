@@ -1,4 +1,4 @@
-import { type FC, useEffect, useRef } from 'react';
+import { type FC, Suspense, useEffect, useRef } from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
 
@@ -18,13 +18,15 @@ const Redirect: FC = () => {
   }, []);
 
   return (
-    <HelmetProvider>
-      <Helmet>
-        <title>Redirect Error</title>
-        <link rel='canonical' href='https://www.tacobell.com/' />
-      </Helmet>
-      <InProgressTemplate />;
-    </HelmetProvider>
+    <Suspense>
+      <HelmetProvider>
+        <Helmet>
+          <title>Redirect Error</title>
+          <link rel='canonical' href='https://www.tacobell.com/' />
+        </Helmet>
+        <InProgressTemplate />;
+      </HelmetProvider>
+    </Suspense>
   );
 };
 

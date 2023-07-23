@@ -1,5 +1,5 @@
 import { Group, Stack } from '@mantine/core';
-import { type FC, useState } from 'react';
+import { type FC, Suspense, useState } from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 import { CryptoBigItem } from '@/components/Card';
@@ -52,42 +52,43 @@ const Crypto: FC = () => {
   );
 
   return (
-    <HelmetProvider>
-      <Helmet>
-        <title>Crypto Data</title>
-        <link rel='canonical' href='https://www.tacobell.com/' />
-      </Helmet>
+    <Suspense>
+      <HelmetProvider>
+        <Helmet>
+          <title>Crypto Data</title>
+          <link rel='canonical' href='https://www.tacobell.com/' />
+        </Helmet>
 
-      <Stack>
-        <CryptoBigItem />
+        <Stack>
+          <CryptoBigItem />
 
-        <Group position='apart' grow>
-          {/* TODO: HANDLE THIS TWO COMPONENT SIZES */}
-          {/* <CryptoTableSearch
+          <Group position='apart' grow>
+            {/* TODO: HANDLE THIS TWO COMPONENT SIZES */}
+            {/* <CryptoTableSearch
             isSearching={true}
             searchValue={searchValue}
             handler={handleSearching}
           /> */}
-          <CryptoTableSpotlight />
+            <CryptoTableSpotlight />
 
-          <CryptoTableOrder
-            data={order}
-            defaultValue={orderValue}
-            orderValue={orderValue}
-            handler={handleOrder}
+            <CryptoTableOrder
+              data={order}
+              defaultValue={orderValue}
+              orderValue={orderValue}
+              handler={handleOrder}
+            />
+          </Group>
+
+          <CryptoTable columns={columns} data={data} isLoading={isLoading} />
+
+          <CryptoTablePagination
+            total={TOTAL_CRYPTO_SIZE / MANUALL_CRYPTO_SIZE}
+            active={activePage}
+            handler={handlePagination}
           />
-        </Group>
+        </Stack>
 
-        <CryptoTable columns={columns} data={data} isLoading={isLoading} />
-
-        <CryptoTablePagination
-          total={TOTAL_CRYPTO_SIZE / MANUALL_CRYPTO_SIZE}
-          active={activePage}
-          handler={handlePagination}
-        />
-      </Stack>
-
-      {/* {isLoading && <p>isLoading...</p>}
+        {/* {isLoading && <p>isLoading...</p>}
 
       {status}
 
@@ -106,7 +107,8 @@ const Crypto: FC = () => {
       )}
 
       {!isLoading && !error && !data && <p>No data to display</p>} */}
-    </HelmetProvider>
+      </HelmetProvider>
+    </Suspense>
   );
 };
 

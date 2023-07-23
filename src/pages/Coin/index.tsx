@@ -1,4 +1,4 @@
-import type { FC } from 'react';
+import { type FC, Suspense } from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { useParams } from 'react-router-dom';
 
@@ -27,14 +27,16 @@ const Coin: FC = () => {
   );
 
   return (
-    <HelmetProvider>
-      <Helmet>
-        <title>{`${data ? data?.name : 'Coin'} Data Info`}</title>
-        <link rel='canonical' href='https://www.tacobell.com/' />
-      </Helmet>
+    <Suspense>
+      <HelmetProvider>
+        <Helmet>
+          <title>{`${data ? data?.name : 'Coin'} Data Info`}</title>
+          <link rel='canonical' href='https://www.tacobell.com/' />
+        </Helmet>
 
-      <CoinInfo data={data} />
-    </HelmetProvider>
+        <CoinInfo data={data} />
+      </HelmetProvider>
+    </Suspense>
   );
 };
 
