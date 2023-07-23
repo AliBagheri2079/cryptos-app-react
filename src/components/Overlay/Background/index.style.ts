@@ -16,7 +16,7 @@ export const useBackgroundOverlayStyles = createStyles(theme => ({
   bgOverlay: {
     clipPath:
       theme.dir === 'ltr' ? 'circle(0% at 0% 0%)' : 'circle(0% at 100% 0%)',
-    animationDuration: '750ms',
+    animationDuration: '500ms',
     animationTimingFunction: 'ease-in-out',
     animationDirection: 'alternate',
   },

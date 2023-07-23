@@ -10,7 +10,7 @@ import {
 import { useNetwork } from '@mantine/hooks';
 import { forwardRef } from 'react';
 
-import { type UserAvatarButtonProps } from '@/global/interfaces/UserAvatarButtonProps';
+import type { UserAvatarButtonProps } from '@/types/Prop/UserAvatar';
 import { shortName } from '@/utils/helpers/shortName';
 
 const UserAvatarButton = forwardRef<HTMLButtonElement, UserAvatarButtonProps>(
@@ -37,7 +37,7 @@ const UserAvatarButton = forwardRef<HTMLButtonElement, UserAvatarButtonProps>(
             withBorder
           >
             <Avatar
-              src={image ?? null}
+              src={image}
               alt={shortUserName}
               variant='filled'
               radius='xl'

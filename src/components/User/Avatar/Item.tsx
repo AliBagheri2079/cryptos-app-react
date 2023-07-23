@@ -3,7 +3,7 @@ import { createElement, type FC } from 'react';
 import { Trans } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
-import { type UserAvatarItemProps } from '@/global/types/Prop/UserAvatarItem';
+import type { UserAvatarItemProps } from '@/types/Prop/UserAvatar';
 import { randomId } from '@/utils/helpers/randomId';
 
 const UserAvatarItem: FC<UserAvatarItemProps> = ({ label, items, divider }) => {

@@ -5,6 +5,7 @@ import { type FC } from 'react';
 import ColorSwatchComponent from '../ColorSwatch';
 import useTheme from '@/hooks/useTheme';
 
+// TODO: change structure to 'ColorInput' component
 const SwitchTheme: FC = () => {
   const theme = useMantineTheme();
   const [primaryColor, changePrimaryColor] = useTheme();

@@ -1,10 +1,10 @@
 import { Box, Text, ThemeIcon, UnstyledButton } from '@mantine/core';
 import { createElement, type FC } from 'react';
 import { Trans } from 'react-i18next';
-import { NavLink, useMatches } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 import { useTabStyles } from './index.style';
-import { type NavLinkProps } from '@/global/types/Prop/NavLink';
+import type NavLinkProps from '@/types/Prop/NavLink';
 
 // TODO: Change to TabLink component
 const LinkTab: FC<Omit<NavLinkProps, 'items' | 'opened'>> = ({
@@ -13,7 +13,7 @@ const LinkTab: FC<Omit<NavLinkProps, 'items' | 'opened'>> = ({
   icon,
 }) => {
   const { classes, cx } = useTabStyles();
-  const [{ pathname }] = useMatches();
+  const { pathname } = useLocation();
 
   return (
     <UnstyledButton<typeof NavLink>

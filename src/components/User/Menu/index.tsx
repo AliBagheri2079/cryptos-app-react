@@ -4,7 +4,7 @@ import { type FC } from 'react';
 
 import { UserAvatarButton, UserAvatarItem } from '../Avatar';
 import { useMenuStyles } from './index.style';
-import { userAvatarItemData } from '@/data/userAvatarItemData';
+import { userAvatarItemData } from '@/data/userAvatar';
 import { randomId } from '@/utils/helpers/randomId';
 
 const UserMenu: FC = () => {

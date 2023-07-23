@@ -2,7 +2,7 @@ import { Flex, Group, Navbar, ScrollArea } from '@mantine/core';
 import { type FC } from 'react';
 
 import { LinkTab } from '@/components/Nav/Link';
-import { navLinkData } from '@/data/navLinkData';
+import { navLinkData } from '@/data/navLink';
 import { BASE_COL_HEIGHT } from '@/utils/constants/colHeight';
 import { randomId } from '@/utils/helpers/randomId';
 
@@ -13,11 +13,12 @@ const TabBar: FC = () => {
     <Navbar
       fixed={true}
       h={BASE_HEIGHT}
-      w='auto'
       sx={theme => ({
         border: 'unset',
         insetBlock: 'auto 0',
-        insetInline: theme.spacing.xs,
+        maskImage: `linear-gradient(to bottom, transparent 0%, ${
+          theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white
+        } 25%)`,
       })}
     >
       <Navbar.Section component={ScrollArea} grow>
@@ -31,12 +32,8 @@ const TabBar: FC = () => {
             sx={theme => ({
               backgroundColor: theme.fn.variant({
                 variant: 'light',
-                color:
-                  theme.colorScheme === 'dark'
-                    ? theme.colors.dark[5]
-                    : theme.colors.gray[2],
+                color: theme.primaryColor,
               }).background,
-
               borderRadius: theme.spacing.xs,
             })}
           >

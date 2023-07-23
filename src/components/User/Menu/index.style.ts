@@ -8,10 +8,6 @@ export const useMenuStyles = createStyles(theme => ({
   },
 
   userItem: {
-    backgroundColor: theme.fn.variant({
-      variant: 'light',
-      color: theme.primaryColor,
-    }).background,
-    backdropFilter: 'blur(10px) saturate(180%)',
+    borderRadius: theme.radius.md,
   },
 }));

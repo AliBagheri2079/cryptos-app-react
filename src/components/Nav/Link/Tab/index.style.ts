@@ -41,8 +41,8 @@ export const useTabStyles = createStyles(theme => ({
     backgroundColor: theme.fn.variant({
       variant: 'light',
       color: theme.primaryColor,
-    }).background,
-    backdropFilter: 'blur(10px) saturate(180%)',
+    }).hover,
+    backdropFilter: 'blur(10px)',
 
     outlineColor:
       theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
