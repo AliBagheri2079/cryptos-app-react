@@ -63,10 +63,7 @@ const CryptoTableSpotlight: FC = () => {
     query,
   };
   const refetchItems: AxiosRefetchItems<string | undefined> = [query];
-  const { data, error, status, isLoading } = searchOnCoingecko(
-    params,
-    refetchItems,
-  );
+  const { data } = searchOnCoingecko(params, refetchItems);
 
   const actions = handleSearching(data);
 
