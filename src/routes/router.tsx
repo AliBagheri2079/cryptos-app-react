@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 
 import Dashboard from '@/layouts/private/Dashboard';
-import { Coin, Crypto, NothingFound } from '@/pages';
+import { Coin, Crypto, NothingFound, Redirect } from '@/pages';
 
 export const router = createBrowserRouter([
   {
@@ -11,7 +11,7 @@ export const router = createBrowserRouter([
         index: true,
         element: (
           <Dashboard>
-            <h1>redirect</h1>
+            <Redirect />
           </Dashboard>
         ),
       },
@@ -35,6 +35,14 @@ export const router = createBrowserRouter([
             ),
           },
         ],
+      },
+      {
+        path: '*',
+        element: (
+          <Dashboard>
+            <Redirect />
+          </Dashboard>
+        ),
       },
     ],
   },
