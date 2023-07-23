@@ -21,10 +21,7 @@ const Coin: FC = () => {
   };
   const refetchItems: AxiosRefetchItems<undefined> = [];
 
-  const { data, error, status, isLoading } = getCoinMarket(
-    params,
-    refetchItems,
-  );
+  const { data } = getCoinMarket(params, refetchItems);
 
   return (
     <Suspense>

@@ -46,10 +46,7 @@ const Crypto: FC = () => {
     activePage,
     orderValue,
   ];
-  const { data, error, status, isLoading } = getCoinsMarkets(
-    params,
-    refetchItems,
-  );
+  const { data, isLoading } = getCoinsMarkets(params, refetchItems);
 
   return (
     <Suspense>
