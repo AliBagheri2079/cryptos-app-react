@@ -1,5 +1,6 @@
 import { Group, Stack } from '@mantine/core';
 import { type FC, useState } from 'react';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 import { CryptoBigItem } from '@/components/Card';
 import { CryptoTablePagination } from '@/components/Pagination';
@@ -51,7 +52,12 @@ const Crypto: FC = () => {
   );
 
   return (
-    <>
+    <HelmetProvider>
+      <Helmet>
+        <title>Crypto Data</title>
+        <link rel='canonical' href='https://www.tacobell.com/' />
+      </Helmet>
+
       <Stack>
         <CryptoBigItem />
 
@@ -100,7 +106,7 @@ const Crypto: FC = () => {
       )}
 
       {!isLoading && !error && !data && <p>No data to display</p>} */}
-    </>
+    </HelmetProvider>
   );
 };
 

@@ -1,4 +1,5 @@
 import type { FC } from 'react';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { useParams } from 'react-router-dom';
 
 import CoinInfo from '@/layouts/private/CoinInfo';
@@ -24,7 +25,16 @@ const Coin: FC = () => {
     refetchItems,
   );
 
-  return <CoinInfo data={data} />;
+  return (
+    <HelmetProvider>
+      <Helmet>
+        <title>{`${data ? data.name : 'Coin'} Data Info`}</title>
+        <link rel='canonical' href='https://www.tacobell.com/' />
+      </Helmet>
+
+      <CoinInfo data={data} />
+    </HelmetProvider>
+  );
 };
 
 export default Coin;
