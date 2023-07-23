@@ -1,13 +1,14 @@
-import type { FC } from 'react';
-import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { useParams } from 'react-router-dom';
 
-import CoinInfo from '@/layouts/private/CoinInfo';
 import getCoinMarket from '@/services/crypto/getCoinMarket';
+import type CoinMarketData from '@/types/Api/Crypto/Data/CoinMarket';
 import type CoinMarketParams from '@/types/Api/Crypto/Params/CoinMarket';
-import type { AxiosRefetchItems } from '@/types/Api/global/UseAxios';
+import type {
+  AxiosRefetchItems,
+  AxiosResponse,
+} from '@/types/Api/global/UseAxios';
 
-const Coin: FC = () => {
+const CoinPageLoader = (): AxiosResponse<CoinMarketData> => {
   const { id: paramId } = useParams();
 
   const params: CoinMarketParams = {
@@ -20,21 +21,13 @@ const Coin: FC = () => {
     sparkline: true,
   };
   const refetchItems: AxiosRefetchItems<undefined> = [];
+
   const { data, error, status, isLoading } = getCoinMarket(
     params,
     refetchItems,
   );
 
-  return (
-    <HelmetProvider>
-      <Helmet>
-        <title>{`${data ? data.name : 'Coin'} Data Info`}</title>
-        <link rel='canonical' href='https://www.tacobell.com/' />
-      </Helmet>
-
-      <CoinInfo data={data} />
-    </HelmetProvider>
-  );
+  return { data, error, status, isLoading };
 };
 
-export default Coin;
+export default CoinPageLoader;

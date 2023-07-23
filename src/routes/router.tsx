@@ -1,7 +1,14 @@
 import { createBrowserRouter } from 'react-router-dom';
 
 import Dashboard from '@/layouts/private/Dashboard';
-import { Coin, Crypto, NothingFound, Redirect } from '@/pages';
+import {
+  CoinPage,
+  CoinPageError,
+  CoinPageLoader,
+  CryptoPage,
+  NothingFoundPage,
+  RedirectPage,
+} from '@/pages';
 
 export const router = createBrowserRouter([
   {
@@ -11,7 +18,7 @@ export const router = createBrowserRouter([
         index: true,
         element: (
           <Dashboard>
-            <Redirect />
+            <RedirectPage />
           </Dashboard>
         ),
       },
@@ -22,7 +29,7 @@ export const router = createBrowserRouter([
             index: true,
             element: (
               <Dashboard>
-                <Crypto />
+                <CryptoPage />
               </Dashboard>
             ),
           },
@@ -30,9 +37,11 @@ export const router = createBrowserRouter([
             path: ':id',
             element: (
               <Dashboard>
-                <Coin />
+                <CoinPage />
               </Dashboard>
             ),
+            errorElement: <CoinPageError />,
+            loader: CoinPageLoader,
           },
         ],
       },
@@ -40,7 +49,7 @@ export const router = createBrowserRouter([
         path: '*',
         element: (
           <Dashboard>
-            <Redirect />
+            <RedirectPage />
           </Dashboard>
         ),
       },
@@ -48,26 +57,6 @@ export const router = createBrowserRouter([
   },
   {
     path: '*',
-    element: <NothingFound />,
-  },
-  {
-    // children: [
-    //   {
-    // with this data loaded before rendering
-    // loader: async ({ request, params }) => {
-    //   return fetch(
-    //     `/fake/api/teams/${params.teamId}.json`,
-    //     { signal: request.signal }
-    //   );
-    // },
-    // performing this mutation when data is submitted to it
-    // action: async ({ request }) => {
-    //   return updateFakeTeam(await request.formData());
-    // },
-    // errorElement: <ErrorBoundary />,
-    //     path: 'crypto/:id',
-    //     element: <Coin />,
-    //   },
-    // ],
+    element: <NothingFoundPage />,
   },
 ]);
