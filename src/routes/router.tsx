@@ -22,7 +22,7 @@ const RedirectPage = lazy(async () => await import('@/pages/Status/Redirect'));
 
 export const router = createBrowserRouter([
   {
-    path: '/dashboard',
+    path: '/',
     children: [
       {
         index: true,

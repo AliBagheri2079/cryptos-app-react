@@ -9,7 +9,7 @@ const Redirect: FC = () => {
   const timer = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    timer.current = setTimeout(() => navigate('/dashboard/crypto'), 3000);
+    timer.current = setTimeout(() => navigate('/crypto'), 3000);
 
     return () => {
       clearInterval(timer.current as NodeJS.Timeout);

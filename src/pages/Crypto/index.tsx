@@ -57,7 +57,7 @@ const Crypto: FC = () => {
         </Helmet>
 
         <Stack>
-          <CryptoBigItem />
+          {/* <CryptoBigItem /> */}
 
           <Group position='apart' grow>
             {/* TODO: HANDLE THIS TWO COMPONENT SIZES */}
