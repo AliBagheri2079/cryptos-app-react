@@ -1,8 +1,9 @@
-import { useMantineTheme } from '@mantine/core';
 import { type FC } from 'react';
 
+import { useDirection } from '@/hooks';
+
 const BrandLogo: FC = () => {
-  const theme = useMantineTheme();
+  const [dir] = useDirection();
 
   return (
     <div className='inline-flex h-[26px] w-[26px] flex-wrap gap-[2px]'>
@@ -10,7 +11,7 @@ const BrandLogo: FC = () => {
         className='basis-3 rounded-[4px] rounded-tr-none bg-current'
         style={{
           transform:
-            theme.dir === 'ltr'
+            dir === 'ltr'
               ? 'matrix(1, 0, 0, -1, 0, 0)'
               : 'matrix(-1, 0, 0, -1, 0, 0)',
         }}
@@ -19,7 +20,7 @@ const BrandLogo: FC = () => {
         className='basis-3 rounded-[4px] rounded-tr-none bg-current'
         style={{
           transform:
-            theme.dir === 'ltr'
+            dir === 'ltr'
               ? 'matrix(-1, 0, 0, -1, 0, 0)'
               : 'matrix(1, 0, 0, -1, 0, 0)',
         }}
@@ -27,8 +28,7 @@ const BrandLogo: FC = () => {
       <div
         className='basis-3 rounded-[4px] rounded-tr-none bg-current'
         style={{
-          transform:
-            theme.dir === 'ltr' ? 'unset' : 'matrix(-1, 0, 0, 1, 0, 0)',
+          transform: dir === 'ltr' ? 'unset' : 'matrix(-1, 0, 0, 1, 0, 0)',
         }}
       />
     </div>

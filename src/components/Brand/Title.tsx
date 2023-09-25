@@ -1,26 +1,21 @@
 import { Text, Title } from '@mantine/core';
 import type { FC } from 'react';
-import { Trans } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
-type BrandTitleProps = {
+type Props = {
   boldTitle: string;
-  regularTitle?: string;
+  regularTitle: string;
 };
 
-const BrandTitle: FC<BrandTitleProps> = ({ boldTitle, regularTitle }) => {
+const BrandTitle: FC<Props> = ({ boldTitle, regularTitle }) => {
+  const { t } = useTranslation();
+
   return (
     <Title order={3} tt='capitalize'>
       <Text span fw={700}>
-        <Trans i18nKey={boldTitle} defaults='Supper' />
+        {t(boldTitle)}
       </Text>
-      <Text span>
-        <Trans
-          i18nKey={regularTitle}
-          defaults='<italic>{{string}}</italic>'
-          values={{ string: 'app' }}
-          components={{ italic: <i /> }}
-        />
-      </Text>
+      <Text span>{t(regularTitle)}</Text>
     </Title>
   );
 };
