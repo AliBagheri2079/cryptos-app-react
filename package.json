@@ -1,5 +1,16 @@
 {
   "name": "supper-app-react",
+  "title": "Supper App Project",
+  "description": "Supper App Project a Simple Project that shows many tools and other tricks...",
+  "author": {
+    "name": "Ali Bagheri",
+    "email": "alibagheri2079.dev@gmail.com",
+    "url": "https://www.github.com/alibagheri2079"
+  },
+  "keywords": [
+    "Cryptos",
+    "Bitcoin"
+  ],
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -37,14 +48,18 @@
     "react": "^18.2.0",
     "react-content-loader": "^6.2.1",
     "react-dom": "^18.2.0",
+    "react-error-boundary": "^4.0.11",
     "react-helmet-async": "^1.3.0",
     "react-i18next": "^13.0.0",
+    "react-lazy-load-image-component": "^1.6.0",
     "react-router-dom": "^6.13.0",
     "styled-components": "6.0.0-rc.3",
     "stylis": "^4.2.0",
     "stylis-plugin-rtl": "^2.1.1",
+    "swr": "^2.2.2",
     "twin.macro": "^3.3.1",
-    "vite-plugin-svgr": "^3.2.0"
+    "vite-plugin-svgr": "^3.2.0",
+    "zustand": "^4.4.1"
   },
   "devDependencies": {
     "@svgr/cli": "^8.0.1",
@@ -52,6 +67,7 @@
     "@types/d3": "^7.4.0",
     "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",
+    "@types/react-lazy-load-image-component": "^1.6.0",
     "@typescript-eslint/eslint-plugin": "^5.59.0",
     "@typescript-eslint/parser": "^5.59.0",
     "@vitejs/plugin-react-swc": "^3.0.0",
