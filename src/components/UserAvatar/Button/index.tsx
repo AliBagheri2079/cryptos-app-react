@@ -10,20 +10,18 @@ import {
 import { useNetwork } from '@mantine/hooks';
 import { forwardRef } from 'react';
 
-import type { UserAvatarButtonProps } from '@/types/Prop/UserAvatar';
-import { shortName } from '@/utils/helpers/shortName';
+import { useStyles } from './index.style';
+import type { AvatarButtonProp } from '@/types/Prop';
+import { shortName } from '@/utils/helpers';
 
-const UserAvatarButton = forwardRef<HTMLButtonElement, UserAvatarButtonProps>(
-  function UserAvatarButton(
-    { image, name, email, ...others }: UserAvatarButtonProps,
-    ref,
-  ) {
+const AvatarButton = forwardRef<HTMLButtonElement, AvatarButtonProp>(
+  function AvatarButton({ image, name, email, ...others }, ref) {
     const shortUserName = shortName(name, 'en-US');
-    // const online = useOnlineStatus();
     const { online } = useNetwork();
+    const { classes, cx } = useStyles();
 
     return (
-      <UnstyledButton ref={ref} {...others}>
+      <UnstyledButton ref={ref} className={cx(classes.button)} {...others}>
         <Group>
           <Divider orientation='vertical' />
 
@@ -36,12 +34,7 @@ const UserAvatarButton = forwardRef<HTMLButtonElement, UserAvatarButtonProps>(
             processing={!online}
             withBorder
           >
-            <Avatar
-              src={image}
-              alt={shortUserName}
-              variant='filled'
-              radius='xl'
-            >
+            <Avatar src={image} alt={name} variant='filled' radius='xl'>
               {shortUserName}
             </Avatar>
           </Indicator>
@@ -51,7 +44,6 @@ const UserAvatarButton = forwardRef<HTMLButtonElement, UserAvatarButtonProps>(
             sx={theme => ({
               flex: 1,
               width: 'calc(5rem + 5vw)',
-
               [theme.fn.smallerThan('sm')]: {
                 display: 'none',
               },
@@ -71,4 +63,4 @@ const UserAvatarButton = forwardRef<HTMLButtonElement, UserAvatarButtonProps>(
   },
 );
 
-export default UserAvatarButton;
+export default AvatarButton;
