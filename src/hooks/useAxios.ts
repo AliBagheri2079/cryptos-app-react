@@ -5,7 +5,7 @@ import type {
   AxiosFetch,
   AxiosRefetch,
   AxiosResponse,
-} from '@/types/Api/global/UseAxios';
+} from '@/types/Api/global';
 
 function useAxios<T>(): [AxiosResponse<T>, AxiosFetch, AxiosRefetch] {
   const [data, setData] = useState<T | undefined>();
@@ -50,4 +50,4 @@ function useAxios<T>(): [AxiosResponse<T>, AxiosFetch, AxiosRefetch] {
   return [{ data, status, error, isLoading }, axiosFetch, { reload, refetch }];
 }
 
-export default useAxios;
+export { useAxios };

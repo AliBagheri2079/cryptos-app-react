@@ -13,9 +13,9 @@ function subscribe(callback: any): () => void {
   };
 }
 
-const useOnlineStatus = (): boolean => {
+function useNetwork(): boolean {
   const isOnline = useSyncExternalStore(subscribe, getSnapshot);
   return isOnline;
-};
+}
 
-export default useOnlineStatus;
+export { useNetwork };

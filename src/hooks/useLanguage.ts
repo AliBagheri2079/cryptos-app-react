@@ -1,21 +1,18 @@
 import { useTranslation } from 'react-i18next';
 
-import { type Language } from '@/types/utility/Language';
+import type { Language, ToggleLanguage } from '@/types/utility';
 
-type ToggleLanguageType = (value?: Language) => void;
-
-const useLanguage = (): [string, ToggleLanguageType] => {
+const useLanguage = (): [Language, ToggleLanguage] => {
   const { i18n } = useTranslation();
-  const defaultLanguage: string = i18n.language;
+  const language = i18n.language as Language;
 
-  const toggleLanguage: ToggleLanguageType = value => {
-    const lang = value ?? (defaultLanguage === 'en' ? 'fa' : 'en');
-
+  const toggleLanguage: ToggleLanguage = value => {
+    const lang = value ?? (language === 'en' ? 'fa' : 'en');
     i18n.changeLanguage(lang);
     document.documentElement.lang = lang;
   };
 
-  return [defaultLanguage, toggleLanguage];
+  return [language, toggleLanguage];
 };
 
-export default useLanguage;
+export { useLanguage };

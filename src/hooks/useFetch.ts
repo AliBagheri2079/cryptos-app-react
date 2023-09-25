@@ -1,12 +1,12 @@
 import { useCallback, useEffect, useState } from 'react';
 
 import type {
-  FetchAgain,
   FetchMethod,
   FetchResponse,
-} from '@/types/Api/global/UseFetch';
+  RefetchMethod,
+} from '@/types/Api/global';
 
-function useFetch<T>(): [FetchResponse<T>, FetchMethod, FetchAgain] {
+function useFetch<T>(): [FetchResponse<T>, FetchMethod, RefetchMethod] {
   const [data, setData] = useState<T | undefined>();
   const [status, setStatus] = useState<number | null>(null);
   const [error, setError] = useState<Error | null>(null);
@@ -32,10 +32,10 @@ function useFetch<T>(): [FetchResponse<T>, FetchMethod, FetchAgain] {
 
       setData(responseData);
       setStatus(responseStatus);
-    } catch (error: unknown) {
-      if (error instanceof Error) {
-        console.error(`error message: ${error.message}`);
-        setError(error);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        console.error(`error message: ${err.message}`);
+        setError(err);
       } else {
         throw new Error('An unexpected error occurred');
       }
@@ -51,4 +51,4 @@ function useFetch<T>(): [FetchResponse<T>, FetchMethod, FetchAgain] {
   return [{ data, status, error, isLoading }, fetchMethod, { reload, refetch }];
 }
 
-export default useFetch;
+export { useFetch };

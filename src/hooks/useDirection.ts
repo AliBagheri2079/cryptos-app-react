@@ -1,20 +1,17 @@
 import { useTranslation } from 'react-i18next';
 
-import { type Direction } from '@/types/utility/Direction';
+import type { Direction, ToggleDirection } from '@/types/utility';
 
-type ToggleDirectionType = (value?: Direction) => void;
-
-const useDirection = (): [Direction, ToggleDirectionType] => {
+const useDirection = (): [Direction, ToggleDirection] => {
   const { i18n } = useTranslation();
-  const defaultDirection: Direction = i18n.dir();
+  const direction = i18n.dir() as Direction;
 
-  const toggleDirection: ToggleDirectionType = value => {
-    const dir = value ?? (defaultDirection === 'ltr' ? 'rtl' : 'ltr');
-
+  const toggleDirection: ToggleDirection = value => {
+    const dir = value ?? (direction === 'ltr' ? 'rtl' : 'ltr');
     document.documentElement.dir = dir;
   };
 
-  return [defaultDirection, toggleDirection];
+  return [direction, toggleDirection];
 };
 
-export default useDirection;
+export { useDirection };

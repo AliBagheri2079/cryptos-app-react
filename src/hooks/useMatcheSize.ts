@@ -14,7 +14,7 @@ type MatchesSize = {
   smallerThan: SizeList;
 };
 
-const useMatchesSize = (): MatchesSize => {
+const useMatcheSize = (): MatchesSize => {
   const { breakpoints } = useMantineTheme();
 
   const largerThanXs = useMediaQuery(`(min-width: ${breakpoints.xs})`);
@@ -47,4 +47,4 @@ const useMatchesSize = (): MatchesSize => {
   };
 };
 
-export default useMatchesSize;
+export { useMatcheSize };
