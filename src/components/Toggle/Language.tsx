@@ -1,12 +1,9 @@
 import { Button } from '@mantine/core';
 import { useHotkeys } from '@mantine/hooks';
-import { IconLanguage } from '@tabler/icons-react';
 import { type FC } from 'react';
 
-import useDirection from '@/hooks/useDirection';
-import useLanguage from '@/hooks/useLanguage';
+import { useDirection, useLanguage } from '@/hooks';
 
-// TODO: replace text and icon with just cuntry flag
 const ToggleLanguage: FC = () => {
   const [language, toggleLanguage] = useLanguage();
   const [, toggleDirection] = useDirection();
@@ -27,12 +24,11 @@ const ToggleLanguage: FC = () => {
       radius='xl'
       size='sm'
       color='dark'
-      w='4.5rem'
       uppercase
       compact
       loading={false}
       loaderPosition='right'
-      rightIcon={<IconLanguage stroke={2.5} />}
+      // rightIcon={<IconLanguage stroke={2} />}
       onClick={() => {
         toggleDirection();
         toggleLanguage();
