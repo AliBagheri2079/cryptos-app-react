@@ -1,18 +1,14 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { useEffect } from 'react';
 
-import cryptoApi from '../api/crypto';
-import useAxios from '@/hooks/useAxios';
-import type CoinMarketData from '@/types/Api/Crypto/Data/CoinMarket';
-import type CoinMarketParams from '@/types/Api/Crypto/Params/CoinMarket';
-import type {
-  AxiosRefetchItems,
-  AxiosResponse,
-} from '@/types/Api/global/UseAxios';
+import { coingeckoApi } from '../api';
+import { useAxios } from '@/hooks';
+import type { CoinMarketData, CoinMarketParams } from '@/types/Api/Coingecko';
+import type { AxiosRefetchItem, AxiosResponse } from '@/types/Api/global';
 
 type CoinMarketFC = (
   params: CoinMarketParams,
-  refetchItems: AxiosRefetchItems<string | undefined>,
+  refetchItems: AxiosRefetchItem<string | undefined>,
 ) => AxiosResponse<CoinMarketData>;
 
 const getCoinMarket: CoinMarketFC = ({ id, ...params }, refetchItems) => {
@@ -20,7 +16,7 @@ const getCoinMarket: CoinMarketFC = ({ id, ...params }, refetchItems) => {
 
   useEffect(() => {
     (async () => {
-      await axiosFetch(cryptoApi, {
+      await axiosFetch(coingeckoApi, {
         method: 'get',
         url: `/coins/${id}`,
         params,
@@ -32,4 +28,4 @@ const getCoinMarket: CoinMarketFC = ({ id, ...params }, refetchItems) => {
   return axiosResponse;
 };
 
-export default getCoinMarket;
+export { getCoinMarket };

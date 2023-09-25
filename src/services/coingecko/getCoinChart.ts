@@ -1,18 +1,14 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { useEffect } from 'react';
 
-import cryptoApi from '../api/crypto';
-import useAxios from '@/hooks/useAxios';
-import type CoinChartData from '@/types/Api/Crypto/Data/CoinChart';
-import type CoinChartParams from '@/types/Api/Crypto/Params/CoinChart';
-import type {
-  AxiosRefetchItems,
-  AxiosResponse,
-} from '@/types/Api/global/UseAxios';
+import { coingeckoApi } from '../api';
+import { useAxios } from '@/hooks';
+import type { CoinChartData, CoinChartParams } from '@/types/Api/Coingecko';
+import type { AxiosRefetchItem, AxiosResponse } from '@/types/Api/global';
 
 type CoinChartFC = (
   params: CoinChartParams,
-  refetchItems: AxiosRefetchItems<string | number | undefined>,
+  refetchItems: AxiosRefetchItem<string | number | undefined>,
 ) => AxiosResponse<CoinChartData>;
 
 const getCoinChart: CoinChartFC = ({ id, ...params }, refetchItems) => {
@@ -20,7 +16,7 @@ const getCoinChart: CoinChartFC = ({ id, ...params }, refetchItems) => {
 
   useEffect(() => {
     (async () => {
-      await axiosFetch(cryptoApi, {
+      await axiosFetch(coingeckoApi, {
         method: 'get',
         url: `/coins/${id}/market_chart`,
         params,
@@ -32,4 +28,4 @@ const getCoinChart: CoinChartFC = ({ id, ...params }, refetchItems) => {
   return axiosResponse;
 };
 
-export default getCoinChart;
+export { getCoinChart };

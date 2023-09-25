@@ -1,18 +1,14 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { useEffect } from 'react';
 
-import cryptoApi from '../api/crypto';
-import useAxios from '@/hooks/useAxios';
-import type CoinHistoryData from '@/types/Api/Crypto/Data/CoinHistory';
-import type CoinHistoryParams from '@/types/Api/Crypto/Params/CoinHistory';
-import type {
-  AxiosRefetchItems,
-  AxiosResponse,
-} from '@/types/Api/global/UseAxios';
+import { coingeckoApi } from '../api';
+import { useAxios } from '@/hooks';
+import type { CoinHistoryData, CoinHistoryParams } from '@/types/Api/Coingecko';
+import type { AxiosRefetchItem, AxiosResponse } from '@/types/Api/global';
 
 type CoinHistoryFC = (
   params: CoinHistoryParams,
-  refetchItems: AxiosRefetchItems<string | number | undefined>,
+  refetchItems: AxiosRefetchItem<string | number | undefined>,
 ) => AxiosResponse<CoinHistoryData>;
 
 const getCoinHistory: CoinHistoryFC = ({ id, ...params }, refetchItems) => {
@@ -20,7 +16,7 @@ const getCoinHistory: CoinHistoryFC = ({ id, ...params }, refetchItems) => {
 
   useEffect(() => {
     (async () => {
-      await axiosFetch(cryptoApi, {
+      await axiosFetch(coingeckoApi, {
         method: 'get',
         url: `/coins/${id}/history`,
         params,
@@ -32,4 +28,4 @@ const getCoinHistory: CoinHistoryFC = ({ id, ...params }, refetchItems) => {
   return axiosResponse;
 };
 
-export default getCoinHistory;
+export { getCoinHistory };

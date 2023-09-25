@@ -1,18 +1,17 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { useEffect } from 'react';
 
-import cryptoApi from '../api/crypto';
-import useAxios from '@/hooks/useAxios';
-import type SearchOnCoingeckoData from '@/types/Api/Crypto/Data/SearchOnCoingecko';
-import type SearchOnCoingeckoParams from '@/types/Api/Crypto/Params/SearchOnCoingecko';
+import { coingeckoApi } from '../api';
+import { useAxios } from '@/hooks';
 import type {
-  AxiosRefetchItems,
-  AxiosResponse,
-} from '@/types/Api/global/UseAxios';
+  SearchOnCoingeckoData,
+  SearchOnCoingeckoParams,
+} from '@/types/Api/Coingecko';
+import type { AxiosRefetchItem, AxiosResponse } from '@/types/Api/global';
 
 type SearchOnCoingeckoFC = (
   params: SearchOnCoingeckoParams,
-  refetchItems: AxiosRefetchItems<string | undefined>,
+  refetchItems: AxiosRefetchItem<string | undefined>,
 ) => AxiosResponse<SearchOnCoingeckoData>;
 
 const searchOnCoingecko: SearchOnCoingeckoFC = (params, refetchItems) => {
@@ -20,7 +19,7 @@ const searchOnCoingecko: SearchOnCoingeckoFC = (params, refetchItems) => {
 
   useEffect(() => {
     (async () => {
-      await axiosFetch(cryptoApi, {
+      await axiosFetch(coingeckoApi, {
         method: 'get',
         url: '/search',
         params,
@@ -32,4 +31,4 @@ const searchOnCoingecko: SearchOnCoingeckoFC = (params, refetchItems) => {
   return axiosResponse;
 };
 
-export default searchOnCoingecko;
+export { searchOnCoingecko };

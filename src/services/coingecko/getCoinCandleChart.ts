@@ -1,18 +1,17 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { useEffect } from 'react';
 
-import cryptoApi from '../api/crypto';
-import useAxios from '@/hooks/useAxios';
-import type CoinCandleChartData from '@/types/Api/Crypto/Data/CoinCandleChart';
-import type CoinCandleChartParams from '@/types/Api/Crypto/Params/CoinCandleChart';
+import { coingeckoApi } from '../api';
+import { useAxios } from '@/hooks';
 import type {
-  AxiosRefetchItems,
-  AxiosResponse,
-} from '@/types/Api/global/UseAxios';
+  CoinCandleChartData,
+  CoinCandleChartParams,
+} from '@/types/Api/Coingecko';
+import type { AxiosRefetchItem, AxiosResponse } from '@/types/Api/global';
 
 type CoinCandleChartFC = (
   params: CoinCandleChartParams,
-  refetchItems: AxiosRefetchItems<string | number | undefined>,
+  refetchItems: AxiosRefetchItem<string | number | undefined>,
 ) => AxiosResponse<CoinCandleChartData>;
 
 const getCoinCandleChart: CoinCandleChartFC = (
@@ -23,7 +22,7 @@ const getCoinCandleChart: CoinCandleChartFC = (
 
   useEffect(() => {
     (async () => {
-      await axiosFetch(cryptoApi, {
+      await axiosFetch(coingeckoApi, {
         method: 'get',
         url: `/coins/${id}/ohlc`,
         params,
@@ -35,4 +34,4 @@ const getCoinCandleChart: CoinCandleChartFC = (
   return axiosResponse;
 };
 
-export default getCoinCandleChart;
+export { getCoinCandleChart };
