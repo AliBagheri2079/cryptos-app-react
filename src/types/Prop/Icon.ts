@@ -1,6 +1,6 @@
-import { type TablerIconsProps } from '@tabler/icons-react';
-import type React from 'react';
+import type { TablerIconsProps } from '@tabler/icons-react';
+import type { FC } from 'react';
 
-type IconProp = React.FC<TablerIconsProps>;
+type IconProp = FC<TablerIconsProps>;
 
-export default IconProp;
+export type { IconProp };

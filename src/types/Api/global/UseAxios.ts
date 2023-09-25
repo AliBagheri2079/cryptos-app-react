@@ -1,7 +1,7 @@
 import type { AxiosInstance, AxiosRequestConfig } from 'axios';
 
-import type RefetchItems from './Refetch';
-import type ApiResponse from './Response';
+import type { RefetchItem } from './Refetch';
+import type { ApiResponse } from './Response';
 
 type AxiosResponse<T> = ApiResponse<T>;
 
@@ -15,6 +15,6 @@ type AxiosRefetch = {
   refetch: () => void;
 };
 
-type AxiosRefetchItems<T> = RefetchItems<T>;
+type AxiosRefetchItem<T> = RefetchItem<T>;
 
-export type { AxiosResponse, AxiosFetch, AxiosRefetch, AxiosRefetchItems };
+export type { AxiosResponse, AxiosFetch, AxiosRefetch, AxiosRefetchItem };

@@ -1,14 +1,14 @@
-import type IconProp from './Icon';
+import type { IconProp } from './Icon';
 
-export type NavLinkInfo = {
+type NavLinkBasic = {
   label: string;
   link: string;
 };
 
-type NavLinkProps = NavLinkInfo & {
+type NavLinkProp = NavLinkBasic & {
   icon: IconProp;
-  items?: NavLinkInfo[];
+  items?: NavLinkBasic[];
   opened?: boolean;
 };
 
-export default NavLinkProps;
+export type { NavLinkBasic, NavLinkProp };

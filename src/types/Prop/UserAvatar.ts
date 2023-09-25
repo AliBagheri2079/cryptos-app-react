@@ -1,8 +1,8 @@
-import type React from 'react';
+import type { ComponentPropsWithoutRef } from 'react';
 
-import type IconProp from './Icon';
+import type { IconProp } from './Icon';
 
-type AvatarItemInfo = {
+type AvatarItemBasic = {
   title: string;
   link: string;
   icon: IconProp;
@@ -10,17 +10,16 @@ type AvatarItemInfo = {
   shortcut?: string;
 };
 
-type UserAvatarItemProps = {
+type AvatarItemProp = {
   label?: string;
-  items: AvatarItemInfo[];
+  items: AvatarItemBasic[];
   divider?: boolean;
 };
 
-interface UserAvatarButtonProps
-  extends React.ComponentPropsWithoutRef<'button'> {
+interface AvatarButtonProp extends ComponentPropsWithoutRef<'button'> {
   image?: string;
   name: string;
   email: string;
 }
 
-export type { AvatarItemInfo, UserAvatarItemProps, UserAvatarButtonProps };
+export type { AvatarItemBasic, AvatarItemProp, AvatarButtonProp };

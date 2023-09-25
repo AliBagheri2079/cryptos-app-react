@@ -5,4 +5,4 @@ type ApiResponse<T> = {
   isLoading: boolean;
 };
 
-export default ApiResponse;
+export type { ApiResponse };

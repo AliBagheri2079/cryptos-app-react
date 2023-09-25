@@ -1,3 +1,3 @@
-type RefetchItems<T> = T[];
+type RefetchItem<T> = T[];
 
-export default RefetchItems;
+export type { RefetchItem };

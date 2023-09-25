@@ -1,5 +1,5 @@
-import type RefetchItems from './Refetch';
-import type ApiResponse from './Response';
+import type { RefetchItem } from './Refetch';
+import type { ApiResponse } from './Response';
 
 type FetchResponse<T> = ApiResponse<T>;
 
@@ -8,11 +8,11 @@ type FetchMethod = (
   init?: RequestInit | undefined,
 ) => Promise<void>;
 
-type FetchAgain = {
+type RefetchMethod = {
   reload: number;
   refetch: () => void;
 };
 
-type FetchAgainItems<T> = RefetchItems<T>;
+type RefetchMethodItem<T> = RefetchItem<T>;
 
-export type { FetchResponse, FetchMethod, FetchAgain, FetchAgainItems };
+export type { FetchResponse, FetchMethod, RefetchMethod, RefetchMethodItem };
