@@ -4,7 +4,7 @@ import { createBrowserRouter } from 'react-router-dom';
 
 import CoinError from '@/pages/Cryptos/Coin/Error';
 import CryptosError from '@/pages/Cryptos/Error';
-import { NotfoundPage, RedirectPage } from '@/pages/status';
+import { NotfoundPage, RedirectPage } from '@/pages/Status';
 
 const Dashboard = lazy(async () => await import('@/layouts/private/Dashboard'));
 const CryptosPage = lazy(async () => await import('@/pages/Cryptos'));
