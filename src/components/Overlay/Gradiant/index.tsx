@@ -1,15 +1,15 @@
 import { Overlay } from '@mantine/core';
 import { type FC } from 'react';
 
-import { useGradiantOverlayStyles } from './index.style';
+import { useStyles } from './index.style';
 
 const GradiantOverlay: FC = () => {
-  const { classes, cx } = useGradiantOverlayStyles();
+  const { classes, cx } = useStyles();
 
   return (
     <>
       <Overlay
-        right='-20%'
+        right='-10%'
         className={cx(classes.gradiantOverlayBase, classes.gradiantOverlay)}
         sx={{
           transform: 'rotate(120deg)',
