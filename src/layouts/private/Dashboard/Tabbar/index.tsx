@@ -1,14 +1,14 @@
 import { Flex, Group, Navbar, ScrollArea } from '@mantine/core';
 import { type FC } from 'react';
 
-import { LinkTab } from '@/components/Nav/Link';
-import { navLinkData } from '@/data/navLink';
-import { BASE_COL_HEIGHT } from '@/utils/constants/colHeight';
-import { randomId } from '@/utils/helpers/randomId';
+import { NavLinkTab } from '@/components/NavLink';
+import { navLinkData } from '@/data';
+import { HEIGHT_SIZE } from '@/utils/constants';
+import { randomId } from '@/utils/helpers';
 
-const BASE_HEIGHT = `calc(${BASE_COL_HEIGHT.SECOND} * 1.8)`;
+const BASE_HEIGHT = `calc(${HEIGHT_SIZE.SECOND} * 1.8)`;
 
-const TabBar: FC = () => {
+const Tabbar: FC = () => {
   return (
     <Navbar
       fixed={true}
@@ -37,9 +37,10 @@ const TabBar: FC = () => {
               borderRadius: theme.spacing.xs,
             })}
           >
-            {navLinkData.map(items => (
-              <LinkTab key={randomId()} {...items} />
-            ))}
+            {navLinkData.map(items => {
+              const id: string = randomId();
+              return <NavLinkTab key={id} {...items} />;
+            })}
           </Flex>
         </Group>
       </Navbar.Section>
@@ -47,4 +48,4 @@ const TabBar: FC = () => {
   );
 };
 
-export default TabBar;
+export default Tabbar;

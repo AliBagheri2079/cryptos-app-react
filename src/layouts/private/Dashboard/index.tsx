@@ -1,20 +1,17 @@
 import { Container, Grid } from '@mantine/core';
 import { type FC, type ReactNode } from 'react';
 
-import Header from '../Header';
-import Sidebar from '../Sidebar';
-import TabBar from '../TabBar';
-import { BackgroundOverlay, GradiantOverlay } from '@/components/Overlay';
-import useMatchesSize from '@/hooks/useMatchesSize';
-import { BASE_COL_HEIGHT } from '@/utils/constants/colHeight';
+import Accessbar from './Accessbar';
+import Backdrop from './Backdrop';
+import Sidebar from './Sidebar';
+import Tabbar from './Tabbar';
+import { HEIGHT_SIZE } from '@/utils/constants';
 
 type Props = {
   children: ReactNode;
 };
 
 const Dashboard: FC<Props> = ({ children }) => {
-  const size = useMatchesSize();
-
   const Layout = (
     <Container
       fluid
@@ -32,23 +29,36 @@ const Dashboard: FC<Props> = ({ children }) => {
         <Grid.Col
           sm='auto'
           lg={2}
-          order={2}
-          orderSm={1}
-          mih={BASE_COL_HEIGHT.FOURTH}
+          mih={HEIGHT_SIZE.FOURTH}
+          maw='100%'
+          display={{
+            base: 'none',
+            sm: 'flex',
+          }}
         >
-          {size.smallerThan.sm ? <TabBar /> : <Sidebar />}
+          <Sidebar />
         </Grid.Col>
 
-        <Grid.Col sm={10} order={1} orderSm={2}>
+        <Grid.Col sm={10} maw='100%'>
           <Grid grow gutter='md' gutterLg='xl'>
-            <Grid.Col span={12} mih={BASE_COL_HEIGHT.FIRST}>
-              <Header />
+            <Grid.Col span={12} mih={HEIGHT_SIZE.FIRST} maw='100%'>
+              <Accessbar />
             </Grid.Col>
 
-            <Grid.Col span='auto' mih={BASE_COL_HEIGHT.SECOND}>
+            <Grid.Col span={12} mih={HEIGHT_SIZE.SECOND} maw='100%'>
               <main>{children}</main>
             </Grid.Col>
           </Grid>
+        </Grid.Col>
+
+        <Grid.Col
+          mih={HEIGHT_SIZE.FOURTH}
+          maw='100%'
+          display={{
+            sm: 'none',
+          }}
+        >
+          <Tabbar />
         </Grid.Col>
       </Grid>
     </Container>
@@ -56,8 +66,7 @@ const Dashboard: FC<Props> = ({ children }) => {
 
   return (
     <>
-      <BackgroundOverlay />
-      <GradiantOverlay />
+      <Backdrop />
       {Layout}
     </>
   );
