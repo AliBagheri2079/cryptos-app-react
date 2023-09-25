@@ -5,7 +5,7 @@ const resources: Resource = {
   en: {
     translation: {
       //* Brand titles
-      brandTitle_1: 'supper',
+      brandTitle_1: 'crypto',
       brandTitle_2: 'app',
 
       //* Navlink data
@@ -79,8 +79,8 @@ const resources: Resource = {
   fa: {
     translation: {
       //* عنوان های سایت
-      brandTitle_1: 'سوپر',
-      brandTitle_2: 'اپلیکیشن',
+      brandTitle_1: 'اپلیکیشن',
+      brandTitle_2: 'ارز دیجیتال',
 
       //* داده های لینک
       navLink_1: 'خانه',

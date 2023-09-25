@@ -1,77 +1,70 @@
-# Supper App React
+# Crypto React
 
 This Layout made with React, Mantine UI(with Tabler Icons and other depencies), TypeScript, Zustand, SWR, React i18next, React Helmet Async, Axios, D3, Tailwind and Postcss.
 
-## [Demo Link](https://supper-app-react.netlify.app)
+## [Demo Link](https://crypto-react.netlify.app/)
 
 <img
 src="./public/screenshots/1.png"
-style="max-width: 600px"
+style="max-width: 300px"
 loading="lazy"
 alt="cryptos page(en) layout screenshot"
 />
 <img
 src="./public/screenshots/2.png"
-style="max-width: 600px"
+style="max-width: 300px"
 loading="lazy"
 alt="cryptos page(fa) layout screenshot"
 />
 
 <img
 src="./public/screenshots/3.png"
-style="max-width: 600px"
+style="max-width: 300px"
 loading="lazy"
 alt="coin page(en) layout screenshot"
 />
 <img
 src="./public/screenshots/4.png"
-style="max-width: 600px"
+style="max-width: 300px"
 loading="lazy"
 alt="coin page(fa) layout screenshot"
 />
 
 <img
 src="./public/screenshots/5.png"
-style="max-width: 600px"
+style="max-width: 300px; max-height: 200px"
 loading="lazy"
-alt="cryptos page(en) change theme color screenshot"
+alt="cryptos page(en) tablet layout screenshot"
 />
 <img
 src="./public/screenshots/6.png"
-style="max-width: 600px"
+style="max-width: 300px; max-height: 200px"
 loading="lazy"
-alt="cryptos page(en) change color scheme screenshot"
+alt="cryptos page(en) mobile layout screenshot"
 />
 
 <img
-src="./public/images/Screenshots/7.png"
-style="max-width: 600px"
+src="./public/screenshots/7.png"
+style="max-width: 300px"
 loading="lazy"
 alt="redirect page(en) layout screenshot"
 />
 <img
-src="./public/images/Screenshots/8.png"
-style="max-width: 600px"
+src="./public/screenshots/8.png"
+style="max-width: 300px"
 loading="lazy"
 alt="notfound page(en) layout screenshot"
 />
 
 <img
 src="./public/screenshots/9.png"
-style="max-width: 600px; max-height: 500px"
+style="max-width: 300px; max-height: 200px"
 loading="lazy"
-alt="cryptos page(en) tablet layout screenshot"
+alt="cryptos page(en) change color scheme screenshot"
 />
 <img
 src="./public/screenshots/10.png"
-style="max-width: 600px; max-height: 500px"
-loading="lazy"
-alt="cryptos page(en) mobile layout screenshot"
-/>
-
-<img
-src="./public/screenshots/11.png"
-style="max-width: 600px"
+style="max-width: 300px; max-height: 200px"
 loading="lazy"
 alt="lighthouse performance charts screenshot"
 />
@@ -109,14 +102,16 @@ alt="lighthouse performance charts screenshot"
 Clone the project
 
 ```bash
-  git clone https://github.com/AliBagheri2079/supper-app-react.git
+  git clone https://github.com/AliBagheri2079/crypto-react.git
+
 
 ```
 
 Go to the project directory
 
 ```bash
-  cd supper-app-react
+  cd crypto-react
+
 
 ```
 
@@ -125,12 +120,14 @@ Install dependencies
 ```bash
   pnpm install
 
+
 ```
 
 Start the server
 
 ```bash
   pnpm run dev
+
 
 ```
 
@@ -139,12 +136,14 @@ Format the Component
 ```bash
   pnpm run format
 
+
 ```
 
 linting the Component
 
 ```bash
   pnpm run lint
+
 
 ```
 
@@ -154,6 +153,7 @@ To deploy this project run
 
 ```bash
   pnpm run deploy
+
 
 ```
 

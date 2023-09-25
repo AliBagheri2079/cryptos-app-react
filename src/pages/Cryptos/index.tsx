@@ -10,7 +10,7 @@ const CryptosPage: FC = () => {
         <title>Cryptos Page</title>
         <meta
           name='description'
-          content='Supper App Project a Simple Project that shows many tools and other tricks...'
+          content='Crypto App Project a Simple Project that shows many tools and other tricks...'
         />
         <link rel='canonical' href='https://www.tacobell.com/' />
       </Helmet>
