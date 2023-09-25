@@ -80,7 +80,7 @@ const resources: Resource = {
     translation: {
       //* عنوان های سایت
       brandTitle_1: 'اپلیکیشن',
-      brandTitle_2: 'ارز دیجیتال',
+      brandTitle_2: 'ارزدیجیتال',
 
       //* داده های لینک
       navLink_1: 'خانه',
