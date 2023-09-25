@@ -2,69 +2,67 @@
 
 This Layout made with React, Mantine UI(with Tabler Icons and other depencies), TypeScript, Zustand, SWR, React i18next, React Helmet Async, Axios, D3, Tailwind and Postcss.
 
-## [Demo Link](https://crypto-react.netlify.app/)
+## [Demo Link](https://cryptos-app-react.netlify.app/)
 
 <img
 src="./public/screenshots/1.png"
-style="max-width: 300px"
+style="max-width: 50px; max-height: 25px;"
 loading="lazy"
 alt="cryptos page(en) layout screenshot"
 />
 <img
 src="./public/screenshots/2.png"
-style="max-width: 300px"
+style="max-width: 50px; max-height: 25px;"
 loading="lazy"
 alt="cryptos page(fa) layout screenshot"
 />
-
 <img
 src="./public/screenshots/3.png"
-style="max-width: 300px"
+style="max-width: 50px; max-height: 25px;"
 loading="lazy"
 alt="coin page(en) layout screenshot"
 />
 <img
 src="./public/screenshots/4.png"
-style="max-width: 300px"
+style="max-width: 50px; max-height: 25px;"
 loading="lazy"
 alt="coin page(fa) layout screenshot"
 />
 
 <img
 src="./public/screenshots/5.png"
-style="max-width: 300px; max-height: 200px"
+style="max-width: 50px; max-height: 25px;"
 loading="lazy"
 alt="cryptos page(en) tablet layout screenshot"
 />
 <img
 src="./public/screenshots/6.png"
-style="max-width: 300px; max-height: 200px"
+style="max-width: 50px; max-height: 25px;"
 loading="lazy"
 alt="cryptos page(en) mobile layout screenshot"
 />
-
 <img
 src="./public/screenshots/7.png"
-style="max-width: 300px"
+style="max-width: 50px; max-height: 25px;"
 loading="lazy"
 alt="redirect page(en) layout screenshot"
 />
 <img
 src="./public/screenshots/8.png"
-style="max-width: 300px"
+style="max-width: 50px; max-height: 25px;"
 loading="lazy"
 alt="notfound page(en) layout screenshot"
 />
 
 <img
 src="./public/screenshots/9.png"
-style="max-width: 300px; max-height: 200px"
+style="max-width: 50px; max-height: 25px;"
 loading="lazy"
 alt="cryptos page(en) change color scheme screenshot"
 />
 <img
 src="./public/screenshots/10.png"
-style="max-width: 300px; max-height: 200px"
+style="max-width: 50px; max-height: 25px;"
 loading="lazy"
 alt="lighthouse performance charts screenshot"
 />
