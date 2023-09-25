@@ -15,12 +15,10 @@ i18n
     lng: 'en',
     supportedLngs: ['en', 'fa'],
     fallbackLng: 'en',
-
     interpolation: {
       //* react already safes from xss
       escapeValue: false,
     },
-
     react: {
       bindI18n: 'languageChanged',
       bindI18nStore: '',
@@ -29,7 +27,6 @@ i18n
       transKeepBasicHtmlNodesFor: ['br', 'strong', 'i'],
       useSuspense: true,
     },
-
     debug: process.env.NODE_ENV === 'development',
   });
 

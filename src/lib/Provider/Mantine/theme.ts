@@ -2,7 +2,7 @@ import { type MantineTheme, type MantineThemeOverride } from '@mantine/core';
 
 type ThemeFC = (props: MantineThemeOverride) => MantineThemeOverride;
 
-export const createTheme: ThemeFC = props => {
+const createTheme: ThemeFC = props => {
   return {
     dir: 'ltr',
     primaryShade: {},
@@ -17,7 +17,7 @@ export const createTheme: ThemeFC = props => {
     lineHeight: {},
     transitionTimingFunction: {},
     fontFamilyMonospace: {},
-    primaryColor: 'indigo',
+    primaryColor: 'yellow',
     // respectReducedMotion: {},
     // cursorType: {},
     defaultGradient: {},
@@ -46,8 +46,7 @@ export const createTheme: ThemeFC = props => {
     globalStyles: (theme: MantineTheme) => ({
       body: {
         ...theme.fn.fontStyles(),
-        backgroundColor:
-          theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
+        backgroundColor: theme.white,
         color:
           theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.black,
         overflowX: 'hidden',
@@ -57,3 +56,5 @@ export const createTheme: ThemeFC = props => {
     ...props,
   };
 };
+
+export { createTheme };
