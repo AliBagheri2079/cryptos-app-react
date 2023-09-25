@@ -1,54 +1,38 @@
-type FormatFC<T> = (language: string) => T;
+import type { IntlFormat } from '@/types/utility';
 
-const narrowTimeFormat: FormatFC<Intl.RelativeTimeFormat> = language => {
-  return new Intl.RelativeTimeFormat(language, {
-    style: 'narrow',
-  });
+const intlFormat: IntlFormat = {
+  narrowTime: language =>
+    new Intl.RelativeTimeFormat(language, {
+      style: 'narrow',
+    }),
+  currencyNumber: language =>
+    new Intl.NumberFormat(language, {
+      style: 'currency',
+      currency: language === 'fa' ? 'IRR' : 'USD',
+      maximumFractionDigits: 2,
+    }),
+  percentUnit: language =>
+    new Intl.NumberFormat(language, {
+      style: 'percent',
+      signDisplay: 'exceptZero',
+    }),
+  celsiusUnit: language =>
+    new Intl.NumberFormat(language, {
+      style: 'unit',
+      unit: 'celsius',
+      notation: 'compact',
+      maximumFractionDigits: 0,
+    }),
+  shortCompact: language =>
+    new Intl.NumberFormat(language, {
+      notation: 'compact',
+      compactDisplay: 'short',
+    }),
+  speedUnit: language =>
+    new Intl.NumberFormat(language, {
+      style: 'unit',
+      unit: 'kilometer-per-hour',
+    }),
 };
 
-const currencyNumberFormat: FormatFC<Intl.NumberFormat> = language => {
-  return new Intl.NumberFormat(language, {
-    style: 'currency',
-    currency: 'USD',
-    maximumFractionDigits: 2,
-  });
-};
-
-const percentUnitFormat: FormatFC<Intl.NumberFormat> = language => {
-  return new Intl.NumberFormat(language, {
-    style: 'percent',
-    signDisplay: 'exceptZero',
-  });
-};
-
-const celsiusUnitFormat: FormatFC<Intl.NumberFormat> = language => {
-  return new Intl.NumberFormat(language, {
-    style: 'unit',
-    unit: 'celsius',
-    notation: 'compact',
-    maximumFractionDigits: 0,
-  });
-};
-
-const shortCompactFormat: FormatFC<Intl.NumberFormat> = language => {
-  return new Intl.NumberFormat(language, {
-    notation: 'compact',
-    compactDisplay: 'short',
-  });
-};
-
-const speedUnitFormat: FormatFC<Intl.NumberFormat> = language => {
-  return new Intl.NumberFormat(language, {
-    style: 'unit',
-    unit: 'kilometer-per-hour',
-  });
-};
-
-export {
-  narrowTimeFormat,
-  currencyNumberFormat,
-  percentUnitFormat,
-  celsiusUnitFormat,
-  shortCompactFormat,
-  speedUnitFormat,
-};
+export { intlFormat };

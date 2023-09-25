@@ -1,1 +1,3 @@
-export const randomId = (): string => self.crypto.randomUUID();
+const randomId = (): string => self.crypto.randomUUID();
+
+export { randomId };
