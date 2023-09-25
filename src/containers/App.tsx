@@ -1,18 +1,25 @@
 import { type FC } from 'react';
 
-import I18nextProvider from '@/lib/I18next';
-import MantineProvider from '@/lib/Mantine';
+import '../assets/styles/main.css';
+import {
+  I18nextProvider,
+  LoaderProvider,
+  MantineProvider,
+  SWRProvider,
+} from '@/lib/Provider';
 import Routes from '@/routes';
 
 const App: FC = () => {
   return (
-    <I18nextProvider>
-      <MantineProvider>
-        {/* <CustomFonts /> */}
-
-        <Routes />
-      </MantineProvider>
-    </I18nextProvider>
+    <MantineProvider>
+      <LoaderProvider>
+        <I18nextProvider>
+          <SWRProvider>
+            <Routes />
+          </SWRProvider>
+        </I18nextProvider>
+      </LoaderProvider>
+    </MantineProvider>
   );
 };
 
