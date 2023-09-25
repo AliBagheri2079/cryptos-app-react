@@ -1,24 +1,24 @@
-import type { ColumnProp, OrderProp } from '@/types/Prop/CryptoTable';
+import type { CryptosColumnProp, CryptosOrderProp } from '@/types/Prop';
 
-const cryptoTableColumnData: ColumnProp[] = [
+const cryptosTableColumnData: CryptosColumnProp[] = [
   {
-    column: 'cryptoTableHeaderColumn_1',
+    column: 'cryptosTableColumn_1',
   },
   {
-    column: 'cryptoTableHeaderColumn_2',
+    column: 'cryptosTableColumn_2',
   },
   {
-    column: 'cryptoTableHeaderColumn_3',
+    column: 'cryptosTableColumn_3',
   },
   {
-    column: 'cryptoTableHeaderColumn_4',
+    column: 'cryptosTableColumn_4',
   },
   {
-    column: 'cryptoTableHeaderColumn_5',
+    column: 'cryptosTableColumn_5',
   },
 ];
 
-const cryptoTableOrderData: OrderProp[] = [
+const cryptosOrderData: CryptosOrderProp[] = [
   {
     value: 'market_cap_asc',
     label: 'Market Cap Asc',
@@ -61,4 +61,4 @@ const cryptoTableOrderData: OrderProp[] = [
   },
 ];
 
-export { cryptoTableColumnData, cryptoTableOrderData };
+export { cryptosTableColumnData, cryptosOrderData };

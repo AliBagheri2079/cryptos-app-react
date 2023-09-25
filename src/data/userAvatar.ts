@@ -5,27 +5,27 @@ import {
   IconTrash,
 } from '@tabler/icons-react';
 
-import type { UserAvatarItemProps } from '@/types/Prop/UserAvatar';
+import { type AvatarItemProp } from '@/types/Prop';
 
-export const userAvatarItemData: UserAvatarItemProps[] = [
+const avatarItemData: AvatarItemProp[] = [
   {
-    label: 'user_avatar_item_1',
+    label: 'userAvatarItem_1',
     items: [
       {
-        title: 'user_avatar_item_1_option_1',
+        title: 'userAvatarItem_1_Option_1',
         link: '/settings',
         icon: IconSettings,
         iconColor: 'blue',
       },
       {
-        title: 'user_avatar_item_1_option_2',
+        title: 'userAvatarItem_1_Option_2',
         link: '/change-account',
         icon: IconSwitchHorizontal,
         iconColor: 'orange',
         shortcut: '⌘C',
       },
       {
-        title: 'user_avatar_item_1_option_3',
+        title: 'userAvatarItem_1_Option_3',
         link: '/logout',
         icon: IconLogout,
         iconColor: 'yellow',
@@ -34,10 +34,10 @@ export const userAvatarItemData: UserAvatarItemProps[] = [
     divider: true,
   },
   {
-    label: 'user_avatar_item_2',
+    label: 'userAvatarItem_2',
     items: [
       {
-        title: 'user_avatar_item_2_option_1',
+        title: 'userAvatarItem_2_Option_1',
         link: '/delete-accout',
         icon: IconTrash,
         iconColor: 'red',
@@ -45,3 +45,5 @@ export const userAvatarItemData: UserAvatarItemProps[] = [
     ],
   },
 ];
+
+export { avatarItemData };
