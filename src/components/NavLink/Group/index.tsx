@@ -4,23 +4,24 @@ import { createElement, type FC, useState } from 'react';
 import { Trans } from 'react-i18next';
 import { NavLink, useLocation } from 'react-router-dom';
 
-import { useGroupStyles } from './index.style';
-import type NavLinkProps from '@/types/Prop/NavLink';
-import { randomId } from '@/utils/helpers/randomId';
+import { useStyles } from './index.style';
+import type { NavLinkProp } from '@/types/Prop';
+import { randomId } from '@/utils/helpers';
 
-interface LinkGroupProp {
+type LinkGroupProp = {
   open?: boolean;
   handleOpen?: () => void;
   hasLinks: boolean;
-}
+};
 
 const LinkGroupButton: FC<
-  LinkGroupProp & Omit<NavLinkProps, 'items' | 'opened'>
+  Omit<NavLinkProp, 'items' | 'opened'> & LinkGroupProp
 > = ({ open, handleOpen, hasLinks, label, link, icon }) => {
-  const { classes, theme, cx } = useGroupStyles();
+  const { classes, theme, cx } = useStyles();
   const { pathname } = useLocation();
 
   const ChevronIcon = theme.dir === 'ltr' ? IconChevronRight : IconChevronLeft;
+
   return (
     <UnstyledButton<typeof NavLink>
       component={NavLink}
@@ -30,12 +31,12 @@ const LinkGroupButton: FC<
       })}
       onClick={handleOpen}
     >
-      <Group position='apart' spacing={0}>
+      <Group position='apart' spacing={0} noWrap>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           {createElement(icon, {
             className: cx(classes.linkColor, classes.linkIcon),
-            size: '24',
-            stroke: '1.5',
+            size: 24,
+            stroke: 1.5,
           })}
           <Box ml='md'>
             <Trans
@@ -47,34 +48,30 @@ const LinkGroupButton: FC<
           </Box>
         </Box>
 
-        {hasLinks && (
+        {hasLinks ? (
           <ChevronIcon
             className={classes.chevron}
             size={15}
             stroke={1.5}
             style={{
               transform:
-                open ?? true
+                open ?? false
                   ? `rotate(${theme.dir === 'rtl' ? -90 : 90}deg)`
                   : 'none',
             }}
           />
-        )}
+        ) : null}
       </Group>
     </UnstyledButton>
   );
 };
-/*
- NOTE: should not use memo() because navlink update the screen
- ! const MemoizedButton = memo(LinkGroupButton);
-*/
 
-const LinkGroupItem: FC<LinkGroupProp & Pick<NavLinkProps, 'items'>> = ({
+const LinkGroupItem: FC<Pick<NavLinkProp, 'items'> & LinkGroupProp> = ({
   open,
   hasLinks,
   items,
 }) => {
-  const { classes, cx } = useGroupStyles();
+  const { classes, cx } = useStyles();
 
   return (
     <>
@@ -84,32 +81,31 @@ const LinkGroupItem: FC<LinkGroupProp & Pick<NavLinkProps, 'items'>> = ({
           transitionDuration={200}
           transitionTimingFunction='linear'
         >
-          {items?.map(({ label, link }) => (
-            <Text<typeof NavLink>
-              key={randomId()}
-              component={NavLink}
-              to={link}
-              className={cx(classes.default, classes.linkColor, classes.link)}
-            >
-              <Trans
-                i18nKey={label}
-                defaults='nav <italic>{{string}}</italic>'
-                values={{ string: 'item' }}
-                components={{ italic: <i /> }}
-              />
-            </Text>
-          ))}
+          {items?.map(({ label, link }) => {
+            const id: string = randomId();
+            return (
+              <Text<typeof NavLink>
+                key={id}
+                component={NavLink}
+                to={link}
+                className={cx(classes.default, classes.linkColor, classes.link)}
+              >
+                <Trans
+                  i18nKey={label}
+                  defaults='nav <italic>{{string}}</italic>'
+                  values={{ string: 'item' }}
+                  components={{ italic: <i /> }}
+                />
+              </Text>
+            );
+          })}
         </Collapse>
       ) : null}
     </>
   );
 };
-/*
- NOTE: should not use memo() because navlink update the screen
- ! const MemoizedItem = memo(LinkGroupItem);
-*/
 
-const LinkGroup: FC<NavLinkProps> = props => {
+const NavLinkGroup: FC<NavLinkProp> = props => {
   const [isOpened, setIsOpened] = useState<boolean>(props.opened ?? false);
   const hasLinks: boolean = Array.isArray(props.items);
 
@@ -130,4 +126,4 @@ const LinkGroup: FC<NavLinkProps> = props => {
   );
 };
 
-export default LinkGroup;
+export default NavLinkGroup;

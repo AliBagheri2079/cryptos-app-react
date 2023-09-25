@@ -3,16 +3,15 @@ import { createElement, type FC } from 'react';
 import { Trans } from 'react-i18next';
 import { NavLink, useLocation } from 'react-router-dom';
 
-import { useTabStyles } from './index.style';
-import type NavLinkProps from '@/types/Prop/NavLink';
+import { useStyles } from './index.style';
+import type { NavLinkProp } from '@/types/Prop';
 
-// TODO: Change to TabLink component
-const LinkTab: FC<Omit<NavLinkProps, 'items' | 'opened'>> = ({
+const NavLinkTab: FC<Omit<NavLinkProp, 'items' | 'opened'>> = ({
   label,
   link,
   icon,
 }) => {
-  const { classes, cx } = useTabStyles();
+  const { classes, cx } = useStyles();
   const { pathname } = useLocation();
 
   return (
@@ -39,8 +38,8 @@ const LinkTab: FC<Omit<NavLinkProps, 'items' | 'opened'>> = ({
           })}
         >
           {createElement(icon, {
-            size: '24',
-            stroke: '1.5',
+            size: 24,
+            stroke: 1.5,
           })}
         </ThemeIcon>
 
@@ -65,4 +64,4 @@ const LinkTab: FC<Omit<NavLinkProps, 'items' | 'opened'>> = ({
   );
 };
 
-export default LinkTab;
+export default NavLinkTab;

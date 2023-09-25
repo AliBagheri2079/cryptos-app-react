@@ -1,6 +1,6 @@
 import { createStyles, rem } from '@mantine/core';
 
-export const useTabStyles = createStyles(theme => ({
+export const useStyles = createStyles(theme => ({
   linkIcon: {
     background: 'unset',
     color: theme.colorScheme === 'dark' ? theme.white : theme.black,
@@ -15,7 +15,7 @@ export const useTabStyles = createStyles(theme => ({
     '&::before, &::after': {
       content: '""',
       position: 'absolute',
-      top: '22%',
+      top: '-20%',
       width: '30px',
       height: '30px',
       background: 'transparent',
@@ -25,12 +25,12 @@ export const useTabStyles = createStyles(theme => ({
     },
 
     '&::before': {
-      right: '102%',
+      right: '93%',
       borderTopRightRadius: '25px',
     },
 
     '&::after': {
-      left: '102%',
+      left: '93%',
       borderTopLeftRadius: '25px',
     },
   },
@@ -46,7 +46,7 @@ export const useTabStyles = createStyles(theme => ({
 
     outlineColor:
       theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
-    transform: 'translateY(-50%)',
+    transform: 'translateY(-25%)',
   },
 
   linkText: {
@@ -54,6 +54,6 @@ export const useTabStyles = createStyles(theme => ({
   },
 
   linkTextActive: {
-    transform: 'translateY(0%) scale(1)',
+    transform: 'translateY(25%) scale(1)',
   },
 }));

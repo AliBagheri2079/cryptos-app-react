@@ -3,17 +3,17 @@ import { createElement, type FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink, useLocation } from 'react-router-dom';
 
-import { useMinimalStyles } from './index.style';
-import type NavLinkProps from '@/types/Prop/NavLink';
+import { useStyles } from './index.style';
+import type { NavLinkProp } from '@/types/Prop';
 
-const LinkMinimal: FC<Omit<NavLinkProps, 'items' | 'opened'>> = ({
+const NavLinkMinimal: FC<Omit<NavLinkProp, 'items' | 'opened'>> = ({
   label,
   link,
   icon,
 }) => {
-  const { classes, cx } = useMinimalStyles();
-  const { pathname } = useLocation();
   const theme = useMantineTheme();
+  const { classes, cx } = useStyles();
+  const { pathname } = useLocation();
   const { t } = useTranslation();
 
   return (
@@ -40,12 +40,12 @@ const LinkMinimal: FC<Omit<NavLinkProps, 'items' | 'opened'>> = ({
         })}
       >
         {createElement(icon, {
-          size: '24',
-          stroke: '1.5',
+          size: 24,
+          stroke: 1.5,
         })}
       </UnstyledButton>
     </Tooltip>
   );
 };
 
-export default LinkMinimal;
+export default NavLinkMinimal;

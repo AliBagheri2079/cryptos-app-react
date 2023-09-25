@@ -1,6 +1,6 @@
 import { createStyles, getStylesRef, rem } from '@mantine/core';
 
-export const useGroupStyles = createStyles(theme => ({
+export const useStyles = createStyles(theme => ({
   default: {
     display: 'block',
     padding: `${theme.spacing.sm} ${theme.spacing.md}`,

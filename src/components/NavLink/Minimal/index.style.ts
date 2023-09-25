@@ -1,6 +1,6 @@
 import { createStyles, rem } from '@mantine/core';
 
-export const useMinimalStyles = createStyles(theme => ({
+export const useStyles = createStyles(theme => ({
   linkIcon: {
     width: rem(50),
     height: rem(50),
