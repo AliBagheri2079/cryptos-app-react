@@ -1,0 +1,7 @@
+@import url('../fonts/index.css');
+
+@layer base {
+  * {
+    transition: all 200ms ease-in-out;
+  }
+}

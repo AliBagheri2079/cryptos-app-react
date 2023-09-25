@@ -1,55 +1,56 @@
 @font-face {
   font-family: Sahel;
-  src: url('Sahel.eot');
-  src: url('Sahel.eot?#iefix') format('embedded-opentype'),
-    url('Sahel.woff2') format('woff2'), url('Sahel.woff') format('woff'),
-    url('Sahel.ttf') format('truetype');
+  src: url('./Default/index.eot');
+  src: url('./Default/index.eot?#iefix') format('embedded-opentype'),
+    url('./Default/index.woff2') format('woff2'),
+    url('./Default/index.woff') format('woff'),
+    url('./Default/index.ttf') format('truetype');
   font-weight: normal;
 }
 
 @font-face {
   font-family: Sahel;
-  src: url('Sahel-Bold.eot');
-  src: url('Sahel-Bold.eot?#iefix') format('embedded-opentype'),
-    url('Sahel-Bold.woff2') format('woff2'),
-    url('Sahel-Bold.woff') format('woff'),
-    url('Sahel-Bold.ttf') format('truetype');
+  src: url('./Bold/index.eot');
+  src: url('./Bold/index.eot?#iefix') format('embedded-opentype'),
+    url('./Bold/index.woff2') format('woff2'),
+    url('./Bold/index.woff') format('woff'),
+    url('./Bold/index.ttf') format('truetype');
   font-weight: bold;
 }
 
 @font-face {
   font-family: Sahel;
-  src: url('Sahel-Light.eot');
-  src: url('Sahel-Light.eot?#iefix') format('embedded-opentype'),
-    url('Sahel-Light.woff2') format('woff2'),
-    url('Sahel-Light.woff') format('woff'),
-    url('Sahel-Light.ttf') format('truetype');
+  src: url('./Light/index.eot');
+  src: url('./Light/index.eot?#iefix') format('embedded-opentype'),
+    url('./Light/index.woff2') format('woff2'),
+    url('./Light/index.woff') format('woff'),
+    url('./Light/index.ttf') format('truetype');
   font-weight: 300;
 }
 
 @font-face {
   font-family: Sahel;
-  src: url('Sahel-SemiBold.eot');
-  src: url('Sahel-SemiBold.eot?#iefix') format('embedded-opentype'),
-    url('Sahel-SemiBold.woff2') format('woff2'),
-    url('Sahel-SemiBold.woff') format('woff'),
-    url('Sahel-SemiBold.ttf') format('truetype');
+  src: url('./SemiBold/index.eot');
+  src: url('./SemiBold/index.eot?#iefix') format('embedded-opentype'),
+    url('./SemiBold/index.woff2') format('woff2'),
+    url('./SemiBold/index.woff') format('woff'),
+    url('./SemiBold/index.ttf') format('truetype');
   font-weight: 600;
 }
 
 @font-face {
   font-family: Sahel;
-  src: url('Sahel-Black.eot');
-  src: url('Sahel-Black.eot?#iefix') format('embedded-opentype'),
-    url('Sahel-Black.woff2') format('woff2'),
-    url('Sahel-Black.woff') format('woff'),
-    url('Sahel-Black.ttf') format('truetype');
+  src: url('./Black/index.eot');
+  src: url('./Black/index.eot?#iefix') format('embedded-opentype'),
+    url('./Black/index.woff2') format('woff2'),
+    url('./Black/index.woff') format('woff'),
+    url('./Black/index.ttf') format('truetype');
   font-weight: 900;
 }
 
 @font-face {
   font-family: 'Sahel VF';
-  src: url('Sahel-VF.woff2') format('woff2');
+  src: url('./VF/index.woff2') format('woff2');
 }
 
 /* 
